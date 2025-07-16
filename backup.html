@@ -4,760 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. John Smith</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Ubuntu">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.5;
             color: #2d3748;
             background: #ffffff;
             font-size: 15px;
             font-weight: 400;
         }
-
-        /* Fixed Navigation */
         .nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(30, 64, 175, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #3b82f6;
+            top: 0; left: 0; right: 0;
+            background: rgba(30,64,175,0.95);
+            padding: 15px;
             z-index: 1000;
-            padding: 15px 0;
-            transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 0 20px;
+            color: white;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+        .nav a {color: white; text-decoration: none; margin: 0 10px;}
+        .main-content {max-width: 900px; margin: 80px auto 40px; padding: 20px;}
+        .section {margin-bottom: 40px;}
+        .publication {margin-bottom: 15px;}
 
-        .nav-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #ffffff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+        /* Dark Mode Styling */
+        body.dark-mode {background-color: #1a202c; color: #e2e8f0;}
+        .dark-mode .nav {background: rgba(45,55,72,0.95);}
+        .dark-mode .publication {border-color: #4a5568;}
 
-        .nav-name:hover {
-            color: #bfdbfe;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            color: #e2e8f0;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 0;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #bfdbfe;
-            border-bottom-color: #bfdbfe;
-        }
-
-        /* Main Content */
-        .main-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 80px 20px 40px; /* Top padding for fixed nav */
-        }
-
-        /* Header */
-        .header {
-            margin-bottom: 60px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #eee;
-        }
-
-        .name {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 10px;
-            letter-spacing: -0.025em;
-        }
-
-        .title {
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 5px;
-        }
-
-        .affiliation {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .contact-line {
-            color: #555;
-            margin-bottom: 5px;
-        }
-
-        .contact-line a {
-            color: #3498db;
-            text-decoration: none;
-        }
-
-        .contact-line a:hover {
-            text-decoration: underline;
-        }
-
-        /* Sections */
-        .section {
-            margin-bottom: 50px;
-            scroll-margin-top: 80px; /* Account for fixed nav */
-        }
-
-        .section h2 {
-            font-size: 1.6rem;
-            color: #1a202c;
-            margin-bottom: 20px;
-            font-weight: 600;
-            border-bottom: 2px solid #3182ce;
-            padding-bottom: 8px;
-            letter-spacing: -0.025em;
-        }
-
-        .section-intro {
-            color: #4a5568;
-            margin-bottom: 20px;
-            font-style: italic;
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        /* About */
-        .about-text {
-            color: #4a5568;
-            margin-bottom: 16px;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        .research-interests {
-            margin-top: 25px;
-        }
-
-        .interests-list {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .quick-links {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .links-grid {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .link-item {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .link-item:hover {
-            text-decoration: underline;
-        }
-
-        /* Publications */
-        .publication {
-            margin-bottom: 24px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .publication:last-child {
-            border-bottom: none;
-        }
-
-        .pub-title {
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 6px;
-            line-height: 1.4;
-            font-size: 1rem;
-        }
-
-        .pub-authors {
-            color: #666;
-            margin-bottom: 4px;
-        }
-
-        .pub-authors .author-self {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .pub-venue {
-            color: #888;
-            font-style: italic;
-            margin-bottom: 8px;
-        }
-
-        .pub-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .pub-link {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 3px 10px;
-            border: 1px solid #3498db;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .pub-link:hover {
+        /* Filter Button Styles */
+        .pub-filter button {
+            padding: 5px 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            border: none;
             background: #3498db;
             color: white;
         }
-
-        /* Teaching */
-        .course {
-            margin-bottom: 28px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #f0f0f0;
-        }
-
-        .course:last-child {
-            border-bottom: none;
-        }
-
-        .course-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-            flex-wrap: wrap;
-        }
-
-        .course-title {
-            font-weight: 600;
-            color: #1a202c;
-            font-size: 1.05rem;
-        }
-
-        .course-term {
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        .course-description {
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .course-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .course-link {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .course-link:hover {
-            text-decoration: underline;
-        }
-
-        /* News */
-        .news-item {
-            margin-bottom: 16px;
-            display: flex;
-            gap: 15px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .news-item:last-child {
-            border-bottom: none;
-        }
-
-        .news-date {
-            color: #888;
-            font-size: 0.9rem;
-            min-width: 80px;
-            flex-shrink: 0;
-        }
-
-        .news-content {
-            color: #555;
-            flex: 1;
-        }
-
-        .news-highlight {
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        /* CV Section */
-        .cv-section {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .cv-link {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background 0.3s ease;
-        }
-
-        .cv-link:hover {
-            background: #2980b9;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #eee;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .main-content {
-                padding: 120px 15px 40px;
-            }
-
-            .name {
-                font-size: 2rem;
-            }
-
-            .course-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .news-item {
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .news-date {
-                min-width: auto;
-            }
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Scroll indicator */
-        .nav.scrolled {
-            background: rgba(29, 78, 216, 0.98);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Fade in animation */
-        .section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .pub-filter button:hover {background: #2980b9;}
     </style>
 </head>
 <body>
-    <!-- Fixed Navigation -->
-    <nav class="nav" id="navbar">
-        <div class="nav-container">
-            <a href="#about" class="nav-name">John Smith</a>
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#publications" class="nav-link">Publications</a>
-                <a href="#teaching" class="nav-link">Teaching</a>
-                <a href="#news" class="nav-link">News</a>
-                <a href="#cv" class="nav-link">CV</a>
-            </div>
+    <nav class="nav">
+        <div><a href="#about">John Smith</a></div>
+        <div>
+            <a href="#about">About</a>
+            <a href="#publications">Publications</a>
+            <a href="#teaching">Teaching</a>
+            <a href="#news">News</a>
+            <a href="#cv">CV</a>
+            <button id="darkModeToggle">🌙</button>
         </div>
     </nav>
 
-    <!-- Main Content -->
     <div class="main-content">
-        <!-- Header -->
-        <div class="header">
-            <h1 class="name">John Smith</h1>
-            <div class="title">Assistant Professor of Computer Science</div>
-            <div class="affiliation">School of Computer Science, Georgia Institute of Technology</div>
-            
-            <div class="contact-line">
-                <strong>Email:</strong> <a href="mailto:jsmith@gatech.edu">jsmith@gatech.edu</a>
-            </div>
-            <div class="contact-line">
-                <strong>Office:</strong> KACB 2318, 266 Ferst Dr, Atlanta, GA 30332
-            </div>
-            <div class="contact-line">
-                <strong>Phone:</strong> (404) 385-XXXX
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <section id="about" class="section">
-            <h2>About</h2>
-            <div class="about-text">
-                I am an Assistant Professor in the <a href="#">School of Computer Science at Georgia Institute of Technology</a>. 
-                Previously, I was a postdoctoral researcher at Stanford University, mentored by 
-                <a href="#">Prof. Jane Doe</a>. I completed my Ph.D. at MIT, advised by 
-                <a href="#">Prof. Alan Turing</a>.
-            </div>
-            
-            <div class="about-text">
-                My research focuses on artificial intelligence, machine learning, and their applications to real-world problems. 
-                I am particularly interested in developing robust and interpretable AI systems that can operate reliably in 
-                dynamic environments.
-            </div>
-
-            <div class="research-interests">
-                <h3>Research Interests</h3>
-                <div class="interests-list">
-                    <strong>Machine Learning:</strong> Deep learning, reinforcement learning, transfer learning<br>
-                    <strong>Artificial Intelligence:</strong> Computer vision, natural language processing, robotics<br>
-                    <strong>Systems:</strong> Distributed machine learning, edge computing, AI safety
-                </div>
-            </div>
-
-            <div class="quick-links">
-                <h3>Quick Links</h3>
-                <div class="links-grid">
-                    <a href="#" class="link-item">Google Scholar</a>
-                    <a href="#" class="link-item">ORCID</a>
-                    <a href="#" class="link-item">GitHub</a>
-                    <a href="#" class="link-item">LinkedIn</a>
-                    <a href="#" class="link-item">Twitter</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications Section -->
         <section id="publications" class="section">
             <h2>Publications</h2>
-            <div class="section-intro">
-                Selected recent publications. For a complete list, see my <a href="#">Google Scholar profile</a>.
+            <div class="pub-filter">
+                <button onclick="filterPubs('all')">All</button>
+                <button onclick="filterPubs('2024')">2024</button>
+                <button onclick="filterPubs('2023')">2023</button>
+                <button onclick="filterPubs('2022')">2022</button>
             </div>
-
-            <div class="publication">
-                <div class="pub-title">Towards Robust Deep Learning: A Comprehensive Framework for Adversarial Training</div>
-                <div class="pub-authors"><span class="author-self">John Smith</span>, Alice Johnson, Bob Wilson</div>
-                <div class="pub-venue">International Conference on Machine Learning (ICML), 2024</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">Code</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                    <a href="#" class="pub-link">Slides</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Efficient Neural Architecture Search with Progressive Pruning</div>
-                <div class="pub-authors">Sarah Lee, <span class="author-self">John Smith</span>, Michael Brown</div>
-                <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), 2023</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">Code</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Interpretable Machine Learning for Healthcare: A Survey and Future Directions</div>
-                <div class="pub-authors"><span class="author-self">John Smith</span>, Emily Chen, David Taylor</div>
-                <div class="pub-venue">Nature Machine Intelligence, 2023</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                    <a href="#" class="pub-link">Dataset</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Federated Learning with Differential Privacy: Algorithms and Analysis</div>
-                <div class="pub-authors">Lisa Wang, <span class="author-self">John Smith</span>, Robert Johnson</div>
-                <div class="pub-venue">International Conference on Learning Representations (ICLR), 2023</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">Code</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Self-Supervised Learning for Computer Vision: A Comprehensive Survey</div>
-                <div class="pub-authors"><span class="author-self">John Smith</span>, Kevin Zhang, Anna Martinez</div>
-                <div class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence, 2022</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                </div>
-            </div>
+            <div class="publication"><span class="pub-year">2024</span> - Towards Robust Deep Learning</div>
+            <div class="publication"><span class="pub-year">2023</span> - Efficient Neural Architecture Search</div>
+            <div class="publication"><span class="pub-year">2023</span> - Interpretable ML for Healthcare</div>
+            <div class="publication"><span class="pub-year">2023</span> - Federated Learning with Privacy</div>
+            <div class="publication"><span class="pub-year">2022</span> - Self-Supervised Learning for CV</div>
         </section>
-
-        <!-- Teaching Section -->
-        <section id="teaching" class="section">
-            <h2>Teaching</h2>
-            <div class="section-intro">
-                I am passionate about teaching and mentoring the next generation of computer scientists.
-            </div>
-
-            <div class="course">
-                <div class="course-header">
-                    <div class="course-title">CS 4803/8803: Machine Learning</div>
-                    <div class="course-term">Spring 2024</div>
-                </div>
-                <div class="course-description">
-                    Introduction to machine learning covering supervised learning, unsupervised learning, and deep learning. 
-                    Students will implement key algorithms and work on practical projects using real-world datasets.
-                </div>
-                <div class="course-links">
-                    <a href="#" class="course-link">Course Website</a>
-                    <a href="#" class="course-link">Syllabus</a>
-                    <a href="#" class="course-link">Lecture Notes</a>
-                </div>
-            </div>
-
-            <div class="course">
-                <div class="course-header">
-                    <div class="course-title">CS 7641: Advanced Machine Learning</div>
-                    <div class="course-term">Fall 2023</div>
-                </div>
-                <div class="course-description">
-                    Graduate-level course covering advanced topics in machine learning including deep learning, 
-                    reinforcement learning, and modern optimization techniques.
-                </div>
-                <div class="course-links">
-                    <a href="#" class="course-link">Course Website</a>
-                    <a href="#" class="course-link">Syllabus</a>
-                    <a href="#" class="course-link">Projects</a>
-                </div>
-            </div>
-
-            <div class="course">
-                <div class="course-header">
-                    <div class="course-title">CS 1332: Data Structures and Algorithms</div>
-                    <div class="course-term">Spring 2023</div>
-                </div>
-                <div class="course-description">
-                    Fundamental data structures and algorithms including arrays, linked lists, trees, graphs, 
-                    and their applications. Emphasis on implementation and algorithmic analysis.
-                </div>
-                <div class="course-links">
-                    <a href="#" class="course-link">Course Website</a>
-                    <a href="#" class="course-link">Syllabus</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- News Section -->
-        <section id="news" class="section">
-            <h2>News</h2>
-            
-            <div class="news-item">
-                <div class="news-date">Mar 2024</div>
-                <div class="news-content">
-                    <span class="news-highlight">Paper accepted</span> at ICML 2024! 
-                    Our work on robust deep learning will be presented in Vienna.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Feb 2024</div>
-                <div class="news-content">
-                    Received <span class="news-highlight">NSF CAREER Award</span> for research on 
-                    interpretable machine learning ($500K over 5 years).
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Jan 2024</div>
-                <div class="news-content">
-                    Invited to give a <span class="news-highlight">keynote talk</span> at the 
-                    International Conference on AI Safety.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Dec 2023</div>
-                <div class="news-content">
-                    New PhD student <span class="news-highlight">Alex Chen</span> joined our research group.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Nov 2023</div>
-                <div class="news-content">
-                    Paper on federated learning accepted at <span class="news-highlight">ICLR 2024</span>.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Oct 2023</div>
-                <div class="news-content">
-                    Presented our work at the <span class="news-highlight">Google AI Summit</span> in Mountain View.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Sep 2023</div>
-                <div class="news-content">
-                    Started collaboration with <span class="news-highlight">MIT CSAIL</span> on 
-                    privacy-preserving machine learning.
-                </div>
-            </div>
-        </section>
-
-        <!-- CV Section -->
-        <section id="cv" class="section">
-            <h2>Curriculum Vitae</h2>
-            <div class="cv-section">
-                <p>Download my complete CV for detailed information about my background, research, and achievements.</p>
-                <br>
-                <a href="#" class="cv-link">Download CV (PDF)</a>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>&copy; 2024 John Smith. Last updated: March 2024.</p>
-        </div>
     </div>
 
     <script>
-        // Smooth scrolling and active nav link updating
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('.section');
-            const navbar = document.getElementById('navbar');
-
-            // Update active nav link based on scroll position
-            function updateActiveLink() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.offsetHeight;
-                    if (window.pageYOffset >= sectionTop && window.pageYOffset < sectionTop + sectionHeight) {
-                        current = section.getAttribute('id');
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-            // Add scroll effect to navbar
-            function handleScroll() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-                updateActiveLink();
-            }
-
-            // Fade in sections on scroll
-            function fadeInSections() {
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const triggerBottom = window.innerHeight * 0.8;
-                    
-                    if (sectionTop < triggerBottom) {
-                        section.classList.add('visible');
-                    }
-                });
-            }
-
-            // Initial fade in
-            fadeInSections();
-
-            // Event listeners
-            window.addEventListener('scroll', () => {
-                handleScroll();
-                fadeInSections();
-            });
-
-            // Smooth scroll for nav links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    
-                    if (targetSection) {
-                        const offsetTop = targetSection.offsetTop - 70;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Initialize
-            updateActiveLink();
+        // Dark Mode Toggle
+        document.getElementById('darkModeToggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            this.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
         });
+
+        // Publications Year Filter
+        function filterPubs(year) {
+            const pubs = document.querySelectorAll('.publication');
+            pubs.forEach(pub => {
+                pub.style.display = (year === 'all' || pub.querySelector('.pub-year').textContent === year) ? 'block' : 'none';
+            });
+        }
     </script>
 </body>
 </html>
