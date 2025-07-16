@@ -26,9 +26,9 @@
             top: 0;
             left: 0;
             right: 0;
-            background: rgba(30, 64, 175, 0.95);
+            background: rgba(186, 12, 47, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid #3b82f6;
+            border-bottom: 1px solid #dc2626;
             z-index: 1000;
             padding: 15px 0;
             transition: all 0.3s ease;
@@ -53,7 +53,7 @@
         }
 
         .nav-name:hover {
-            color: #bfdbfe;
+            color: #fecaca;
         }
 
         .nav-links {
@@ -74,8 +74,8 @@
 
         .nav-links a:hover,
         .nav-links a.active {
-            color: #bfdbfe;
-            border-bottom-color: #bfdbfe;
+            color: #fecaca;
+            border-bottom-color: #fecaca;
         }
 
         /* Main Content */
@@ -87,9 +87,28 @@
 
         /* Header */
         .header {
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             padding-bottom: 40px;
             border-bottom: 2px solid #eee;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .header-content {
+            /* This will contain the name and contact info */
+        }
+
+        .uga-logo {
+            width: 200px;
+            height: auto;
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        .uga-logo:hover {
+            opacity: 1;
         }
 
         .name {
@@ -156,6 +175,15 @@
             margin-bottom: 16px;
             font-size: 1rem;
             line-height: 1.6;
+        }
+
+        .about-text a {
+            color: #BA0C2F;
+            text-decoration: none;
+        }
+
+        .about-text a:hover {
+            text-decoration: underline;
         }
 
         .research-interests {
@@ -379,6 +407,17 @@
                 font-size: 2rem;
             }
 
+            .header {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .uga-logo {
+                width: 150px;
+                margin: 0 auto;
+            }
+
             .course-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -401,7 +440,7 @@
 
         /* Scroll indicator */
         .nav.scrolled {
-            background: rgba(29, 78, 216, 0.98);
+            background: rgba(153, 10, 39, 0.98);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
@@ -437,18 +476,25 @@
     <div class="main-content">
         <!-- Header -->
         <div class="header">
-            <h1 class="name">John Smith</h1>
-            <div class="title">Assistant Professor of Computer Science</div>
-            <div class="affiliation">School of Computer Science, Georgia Institute of Technology</div>
-            
-            <div class="contact-line">
-                <strong>Email:</strong> <a href="mailto:jsmith@gatech.edu">jsmith@gatech.edu</a>
+            <div class="header-content">
+                <h1 class="name">John Smith</h1>
+                <div class="title">Assistant Professor of Computer Science</div>
+                <div class="affiliation">School of Computing, University of Georgia</div>
+                
+                <div class="contact-line">
+                    <strong>Email:</strong> <a href="mailto:jsmith@uga.edu">jsmith@uga.edu</a>
+                </div>
+                <div class="contact-line">
+                    <strong>Office:</strong> Boyd Graduate Studies Research Center, Room 441
+                </div>
+                <div class="contact-line">
+                    <strong>Phone:</strong> (706) 542-XXXX
+                </div>
             </div>
-            <div class="contact-line">
-                <strong>Office:</strong> KACB 2318, 266 Ferst Dr, Atlanta, GA 30332
-            </div>
-            <div class="contact-line">
-                <strong>Phone:</strong> (404) 385-XXXX
+            <div>
+                <img src="https://computing.uga.edu/sites/default/files/SchoolOfComputing_logo_Horizontal_FC_web_Horizontal_FC_1.png" 
+                     alt="UGA School of Computing" 
+                     class="uga-logo">
             </div>
         </div>
 
@@ -456,7 +502,7 @@
         <section id="about" class="section">
             <h2>About</h2>
             <div class="about-text">
-                I am an Assistant Professor in the <a href="#">School of Computer Science at Georgia Institute of Technology</a>. 
+                I am an Assistant Professor in the <a href="https://computing.uga.edu">School of Computing at the University of Georgia</a>. 
                 Previously, I was a postdoctoral researcher at Stanford University, mentored by 
                 <a href="#">Prof. Jane Doe</a>. I completed my Ph.D. at MIT, advised by 
                 <a href="#">Prof. Alan Turing</a>.
