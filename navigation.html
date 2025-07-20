@@ -1,0 +1,50 @@
+<!-- Fixed Navigation -->
+<nav class="nav" id="navbar">
+    <div class="nav-container">
+        <a href="index.html" class="nav-name">John Smith</a>
+        <div class="nav-links">
+            <a href="index.html#about" class="nav-link" data-page="about">About</a>
+            <a href="index.html#publications" class="nav-link" data-page="publications">Publications</a>
+            <a href="index.html#teaching" class="nav-link" data-page="teaching">Teaching</a>
+            <a href="research-group.html" class="nav-link" data-page="research-group">Research Group</a>
+            <a href="index.html#news" class="nav-link" data-page="news">News</a>
+            <a href="index.html#cv" class="nav-link" data-page="cv">CV</a>
+        </div>
+    </div>
+</nav>
+
+<script>
+// Navigation active state management
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Set active state based on current page
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        
+        if (currentPage === 'research-group.html' && link.getAttribute('data-page') === 'research-group') {
+            link.classList.add('active');
+        } else if (currentPage === 'index.html' || currentPage === '') {
+            // For index page, set active based on hash or default to about
+            const hash = window.location.hash.substring(1) || 'about';
+            if (link.getAttribute('data-page') === hash) {
+                link.classList.add('active');
+            }
+        }
+    });
+});
+
+// Scroll effect for navbar
+function handleNavScroll() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+}
+
+// Initialize scroll handler
+window.addEventListener('scroll', handleNavScroll);
+</script>

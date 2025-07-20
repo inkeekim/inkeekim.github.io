@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Group - Dr. John Smith</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js"></script>
+</head>;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-name:hover {
+            color: #fecaca;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fecaca;
+            border-bottom-color: #fecaca;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 20px 40px;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 15px;
+            letter-spacing: -0.025em;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .page-description {
+            font-size: 1rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #BA0C2F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #990a26;
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #1a202c;
+            margin-bottom: 25px;
+            font-weight: 600;
+            border-bottom: 2px solid #BA0C2F;
+            padding-bottom: 10px;
+            letter-spacing: -0.025em;
+        }
+
+        .section-intro {
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-style: italic;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Student Lists */
+        .student-category {
+            margin-bottom: 35px;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .student-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .student-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+
+        .student-item:hover {
+            background-color: #f8f9fa;
+            padding-left: 10px;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding-right: 10px;
+        }
+
+        .student-item:last-child {
+            border-bottom: none;
+        }
+
+        .student-info {
+            flex: 1;
+        }
+
+        .student-name {
+            font-weight: 600;
+            color: #1a202c;
+            margin-right: 15px;
+        }
+
+        .student-research {
+            color: #666;
+            font-size: 0.95rem;
+            margin-left: 5px;
+        }
+
+        .student-year {
+            color: #888;
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        /* Alumni specific styling */
+        .alumni-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .alumni-item:hover {
+            background-color: #f8f9fa;
+            padding-left: 10px;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding-right: 10px;
+        }
+
+        .alumni-item:last-child {
+            border-bottom: none;
+        }
+
+        .alumni-info {
+            flex: 1;
+        }
+
+        .alumni-name {
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .alumni-current {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .alumni-year {
+            color: #888;
+            font-size: 0.9rem;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* Research Areas */
+        .research-areas {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .research-areas h3 {
+            color: #1a202c;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .research-areas ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research-areas li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #4a5568;
+        }
+
+        .research-areas li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .main-content {
+                padding: 120px 15px 40px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .students-grid {
+                display: block;
+            }
+
+            .alumni-list {
+                display: block;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll indicator */
+        .nav.scrolled {
+            background: rgba(153, 10, 39, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="navigation-placeholder"></div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Back Link -->
+        <a href="index.html" class="back-link">← Back to Main Page</a>
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1 class="page-title">Research Group</h1>
+            <div class="page-subtitle">Machine Learning & AI Lab</div>
+            <p class="page-description">
+                Our research group focuses on advancing the frontiers of artificial intelligence and machine learning. 
+                We work on developing novel algorithms, systems, and applications that address real-world challenges.
+            </p>
+        </div>
+
+        <!-- Research Areas -->
+        <div class="research-areas">
+            <h3>Current Research Areas</h3>
+            <ul>
+                <li><strong>Deep Learning:</strong> Neural architecture search, interpretable deep learning, adversarial robustness</li>
+                <li><strong>Machine Learning:</strong> Federated learning, transfer learning, few-shot learning</li>
+                <li><strong>Computer Vision:</strong> Object detection, image segmentation, medical image analysis</li>
+                <li><strong>Natural Language Processing:</strong> Language models, sentiment analysis, machine translation</li>
+                <li><strong>AI Safety:</strong> Explainable AI, fairness in ML, privacy-preserving machine learning</li>
+            </ul>
+        </div>
+
+        <!-- Current Students -->
+        <section class="section">
+            <h2>Research Group Members</h2>
+            
+            <!-- PhD Students -->
+            <div class="student-category">
+                <h3 class="category-title">PhD Students</h3>
+                <ul class="student-list">
+                    <li class="student-item">
+                        <div class="student-info">
+                            <span class="student-name">Emily Zhang</span>
+                            <span class="student-research">- Interpretable ML for healthcare</span>
+                        </div>
+                        <div class="student-year">2022-Present</div>
+                    </li>
+                    <li class="student-item">
+                        <div class="student-info">
+                            <span class="student-name">Michael Rodriguez</span>
+                            <span class="student-research">- Federated learning and privacy</span>
+                        </div>
+                        <div class="student-year">2023-Present</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- MS Students -->
+            <div class="student-category">
+                <h3 class="category-title">MS Students</h3>
+                <ul class="student-list">
+                    <li class="student-item">
+                        <div class="student-info">
+                            <span class="student-name">Sarah Kim</span>
+                            <span class="student-research">- Computer vision and medical imaging</span>
+                        </div>
+                        <div class="student-year">2023-Present</div>
+                    </li>
+                    <li class="student-item">
+                        <div class="student-info">
+                            <span class="student-name">David Chen</span>
+                            <span class="student-research">- Natural language processing</span>
+                        </div>
+                        <div class="student-year">2024-Present</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Undergraduate Students -->
+            <div class="student-category">
+                <h3 class="category-title">Undergraduate Researchers</h3>
+                <ul class="student-list">
+                    <li class="student-item">
+                        <div class="student-info">
+                            <span class="student-name">Alex Johnson</span>
+                            <span class="student-research">- Reinforcement learning and robotics</span>
+                        </div>
+                        <div class="student-year">2024-Present</div>
+                    </li>
+                    <li class="student-item">
+                        <div class="student-info">
+                            <span class="student-name">Jessica Liu</span>
+                            <span class="student-research">- Edge computing and distributed ML</span>
+                        </div>
+                        <div class="student-year">2024-Present</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Alumni -->
+        <section class="section">
+            <h2>Alumni</h2>
+            
+            <!-- PhD Alumni -->
+            <div class="student-category">
+                <h3 class="category-title">PhD Graduates</h3>
+                <ul class="student-list">
+                    <li class="alumni-item">
+                        <div class="alumni-info">
+                            <div class="alumni-name">Dr. Maria Gonzalez</div>
+                            <div class="alumni-current">Research Scientist, Google DeepMind</div>
+                        </div>
+                        <div class="alumni-year">2023</div>
+                    </li>
+                    <li class="alumni-item">
+                        <div class="alumni-info">
+                            <div class="alumni-name">Dr. James Wang</div>
+                            <div class="alumni-current">Assistant Professor, Carnegie Mellon University</div>
+                        </div>
+                        <div class="alumni-year">2022</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- MS Alumni -->
+            <div class="student-category">
+                <h3 class="category-title">MS Graduates</h3>
+                <ul class="student-list">
+                    <li class="alumni-item">
+                        <div class="alumni-info">
+                            <div class="alumni-name">Lisa Thompson</div>
+                            <div class="alumni-current">ML Engineer, Microsoft</div>
+                        </div>
+                        <div class="alumni-year">2023</div>
+                    </li>
+                    <li class="alumni-item">
+                        <div class="alumni-info">
+                            <div class="alumni-name">Robert Davis</div>
+                            <div class="alumni-current">Data Scientist, Netflix</div>
+                        </div>
+                        <div class="alumni-year">2022</div>
+                    </li>
+                    <li class="alumni-item">
+                        <div class="alumni-info">
+                            <div class="alumni-name">Amy Foster</div>
+                            <div class="alumni-current">Senior Software Engineer, Apple</div>
+                        </div>
+                        <div class="alumni-year">2021</div>
+                    </li>
+                    <li class="alumni-item">
+                        <div class="alumni-info">
+                            <div class="alumni-name">Kevin Park</div>
+                            <div class="alumni-current">Research Engineer, OpenAI</div>
+                        </div>
+                        <div class="alumni-year">2021</div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2024 John Smith Research Group. University of Georgia School of Computing.</p>
+        </div>
+    </div>
+</body>
+</html>
