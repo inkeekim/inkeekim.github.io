@@ -269,28 +269,62 @@ html {
     text-decoration: underline;
 }
 
-/* Publications */
+/* Publications - Year-based structure */
+.publication-year {
+    margin-bottom: 30px;
+}
+
+.year-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a202c;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
 .publication {
-    margin-bottom: 20px;
-    padding-bottom: 16px;
+    margin-bottom: 16px;
+    margin-left: 25px;
+    padding-bottom: 12px;
     border-bottom: 1px solid #f0f0f0;
+    position: relative;
 }
 
 .publication:last-child {
     border-bottom: none;
 }
 
+.publication::before {
+    content: "•";
+    position: absolute;
+    left: -15px;
+    top: 0;
+    color: #BA0C2F;
+    font-weight: bold;
+}
+
 .pub-title {
     font-weight: 600;
     color: #1a202c;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     line-height: 1.4;
     font-size: 1rem;
 }
 
+.pub-title a {
+    color: #1a202c;
+    text-decoration: none;
+}
+
+.pub-title a:hover {
+    color: #BA0C2F;
+    text-decoration: none;
+}
+
 .pub-authors {
     color: #666;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 
 .pub-authors .author-self {
@@ -301,7 +335,7 @@ html {
 .pub-venue {
     color: #888;
     font-style: italic;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
 }
 
 .pub-links {

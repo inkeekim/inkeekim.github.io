@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. John Smith</title>
+    <title>In Kee Kim - School of Computing at The University of Georgia</title>
     <style>
+        /* Universal Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Base Styles */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             line-height: 1.5;
@@ -18,6 +20,11 @@
             background: #ffffff;
             font-size: 15px;
             font-weight: 400;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Fixed Navigation */
@@ -78,18 +85,24 @@
             border-bottom-color: #fecaca;
         }
 
+        /* Scroll indicator */
+        .nav.scrolled {
+            background: rgba(153, 10, 39, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
         /* Main Content */
         .main-content {
             max-width: 900px;
             margin: 0 auto;
-            padding: 80px 20px 40px; /* Top padding for fixed nav */
+            padding: 80px 20px 40px;
         }
 
-        /* Header */
+        /* Page Headers */
         .header {
-            margin-bottom: 50px;
-            padding-bottom: 40px;
-            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+            padding-bottom: 0px;
+            border-bottom: none;
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 3rem;
@@ -100,6 +113,36 @@
             /* This will contain the name and contact info */
         }
 
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a202c;
+            margin-bottom: 15px;
+            letter-spacing: -0.025em;
+        }
+
+        .page-subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .page-description {
+            font-size: 1rem;
+            color: #4a5568;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* UGA Logo */
         .uga-logo {
             width: 350px;
             height: auto;
@@ -111,6 +154,7 @@
             opacity: 1;
         }
 
+        /* Typography */
         .name {
             font-size: 2.2rem;
             font-weight: 700;
@@ -145,10 +189,25 @@
             text-decoration: underline;
         }
 
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #BA0C2F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #990a26;
+            text-decoration: underline;
+        }
+
         /* Sections */
         .section {
             margin-bottom: 45px;
-            scroll-margin-top: 80px; /* Account for fixed nav */
+            scroll-margin-top: 80px;
         }
 
         .section h2 {
@@ -169,7 +228,7 @@
             line-height: 1.5;
         }
 
-        /* About */
+        /* About Section */
         .about-text {
             color: #4a5568;
             margin-bottom: 14px;
@@ -217,83 +276,109 @@
             text-decoration: underline;
         }
 
-        /* Publications */
+        /* Publications - Year-based structure */
+        .publication-year {
+            margin-bottom: 30px;
+        }
+
+        .year-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
         .publication {
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 6px !important;
+            margin-left: 25px !important;
+            padding-bottom: 2px !important;
+            border-bottom: none !important;
+            position: relative;
         }
 
         .publication:last-child {
-            border-bottom: none;
+            border-bottom: none !important;
         }
 
+        .publication::before {
+            content: "•";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #BA0C2F;
+            font-weight: bold;
+        }
+
+        /* Additional spacing adjustments for publications */
         .pub-title {
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 5px;
-            line-height: 1.4;
-            font-size: 1rem;
+            margin-bottom: 3px !important;
+            font-weight: 700 !important;
         }
 
-        .pub-authors {
-            color: #666;
-            margin-bottom: 3px;
+        .pub-title a {
+            font-weight: 700 !important;
         }
 
         .pub-authors .author-self {
-            font-weight: bold;
-            color: #2c3e50;
+            font-weight: 700 !important;
+            color: #1a202c !important;
+        }
+
+        .pub-authors {
+            margin-bottom: 2px !important;
         }
 
         .pub-venue {
-            color: #888;
-            font-style: italic;
-            margin-bottom: 6px;
-        }
-
-        .pub-links {
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .pub-link {
-            color: #3498db;
-            text-decoration: none;
-            font-size: 0.9rem;
-            padding: 3px 10px;
-            border: 1px solid #3498db;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .pub-link:hover {
-            background: #3498db;
-            color: white;
+            margin-bottom: 4px !important;
         }
 
         /* Teaching */
+        .teaching-category {
+            margin-bottom: 30px;
+        }
+
+        .teaching-year-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
         .course {
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid #f0f0f0;
+            margin-bottom: 6px;
+            margin-left: 25px;
+            padding-bottom: 2px;
+            border-bottom: none;
+            position: relative;
         }
 
         .course:last-child {
             border-bottom: none;
         }
 
+        .course::before {
+            content: "•";
+            position: absolute;
+            left: -15px;
+            top: 0;
+            color: #BA0C2F;
+            font-weight: bold;
+        }
+
         .course-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 6px;
+            margin-bottom: 2px;
             flex-wrap: wrap;
         }
 
         .course-title {
-            font-weight: 600;
+            font-weight: 400;
             color: #1a202c;
             font-size: 1.05rem;
         }
@@ -305,7 +390,7 @@
 
         .course-description {
             color: #666;
-            margin-bottom: 8px;
+            margin-bottom: 2px;
         }
 
         .course-links {
@@ -354,6 +439,141 @@
             color: #2c3e50;
         }
 
+        /* Research Group - Student Lists */
+        .student-category {
+            margin-bottom: 35px;
+        }
+
+        .category-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .student-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .student-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+
+        .student-item:hover {
+            background-color: #f8f9fa;
+            padding-left: 10px;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding-right: 10px;
+        }
+
+        .student-item:last-child {
+            border-bottom: none;
+        }
+
+        .student-info {
+            flex: 1;
+        }
+
+        .student-name {
+            font-weight: 600;
+            color: #1a202c;
+            margin-right: 15px;
+        }
+
+        .student-research {
+            color: #666;
+            font-size: 0.95rem;
+            margin-left: 5px;
+        }
+
+        .student-year {
+            color: #888;
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        /* Alumni specific styling */
+        .alumni-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 8px 0;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .alumni-item:hover {
+            background-color: #f8f9fa;
+            padding-left: 10px;
+            margin-left: -10px;
+            margin-right: -10px;
+            padding-right: 10px;
+        }
+
+        .alumni-item:last-child {
+            border-bottom: none;
+        }
+
+        .alumni-info {
+            flex: 1;
+        }
+
+        .alumni-name {
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .alumni-current {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .alumni-year {
+            color: #888;
+            font-size: 0.9rem;
+            min-width: 80px;
+            text-align: right;
+        }
+
+        /* Research Areas */
+        .research-areas {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+        }
+
+        .research-areas h3 {
+            color: #1a202c;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .research-areas ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .research-areas li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+            color: #4a5568;
+        }
+
+        .research-areas li:last-child {
+            border-bottom: none;
+        }
+
         /* CV Section */
         .cv-section {
             background: #f8f9fa;
@@ -388,6 +608,18 @@
             font-size: 0.9rem;
         }
 
+        /* Fade in animation */
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -404,6 +636,10 @@
             }
 
             .name {
+                font-size: 2rem;
+            }
+
+            .page-title {
                 font-size: 2rem;
             }
 
@@ -432,43 +668,20 @@
                 min-width: auto;
             }
         }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Scroll indicator */
-        .nav.scrolled {
-            background: rgba(153, 10, 39, 0.98);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Fade in animation */
-        .section {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
     </style>
 </head>
 <body>
     <!-- Fixed Navigation -->
     <nav class="nav" id="navbar">
         <div class="nav-container">
-            <a href="#about" class="nav-name">John Smith</a>
+            <a href="#about" class="nav-name">In Kee Kim</a>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
-                <a href="#publications" class="nav-link">Publications</a>
                 <a href="#teaching" class="nav-link">Teaching</a>
+                <a href="#publications" class="nav-link">Publications</a>
                 <a href="research-group.html">Research Group</a>
-                <a href="#news" class="nav-link">News</a>
-                <a href="#cv" class="nav-link">CV</a>
+                <!-- <a href="#news" class="nav-link">News</a> -->
+                <a href="./CV/CV_InKeeKim.pdf" target="_new">CV</a>
             </div>
         </div>
     </nav>
@@ -478,18 +691,15 @@
         <!-- Header -->
         <div class="header">
             <div class="header-content">
-                <h1 class="name">John Smith</h1>
-                <div class="title">Assistant Professor of Computer Science</div>
+                <h1 class="name">In Kee Kim</h1>
+                <div class="title">Associate Professor of Computer Science</div>
                 <div class="affiliation">School of Computing, University of Georgia</div>
                 
                 <div class="contact-line">
-                    <strong>Email:</strong> <a href="mailto:jsmith@uga.edu">jsmith@uga.edu</a>
+                    <strong>Email:</strong> <a href="mailto:inkee.kim@uga.edu">inkee.kim@uga.edu</a>
                 </div>
                 <div class="contact-line">
-                    <strong>Office:</strong> Boyd Graduate Studies Research Center, Room 441
-                </div>
-                <div class="contact-line">
-                    <strong>Phone:</strong> (706) 542-XXXX
+                    <strong>Office:</strong> Boyd Graduate Studies Research Center, Room 802
                 </div>
             </div>
             <div>
@@ -503,27 +713,24 @@
         <section id="about" class="section">
             <h2>About</h2>
             <div class="about-text">
-                I am an Assistant Professor in the <a href="https://computing.uga.edu">School of Computing at the University of Georgia</a>. 
-                Previously, I was a postdoctoral researcher at Stanford University, mentored by 
-                <a href="#">Prof. Jane Doe</a>. I completed my Ph.D. at MIT, advised by 
-                <a href="#">Prof. Alan Turing</a>.
+                I am an Associate Professor in the <a href="https://computing.uga.edu">School of Computing</a> at the <a href='https://www.uga.edu/'>University of Georgia</a>a. I completed my Ph.D. in Computer Science in 2018 at the University of Virginia. 
+
             </div>
             
             <div class="about-text">
-                My research focuses on artificial intelligence, machine learning, and their applications to real-world problems. 
-                I am particularly interested in developing robust and interpretable AI systems that can operate reliably in 
-                dynamic environments.
+                My research interests lie in addressing <B>performance and resource management problems</B> in various computing systems (e.g., cloud, HPC, edge, and IoT). My research is supported by various funding agencies (e.g., NSF, DoD, Army Research Labs, NIFA/USDA).
             </div>
 
             <div class="research-interests">
                 <h3>Research Interests</h3>
                 <div class="interests-list">
-                    <strong>Machine Learning:</strong> Deep learning, reinforcement learning, transfer learning<br>
-                    <strong>Artificial Intelligence:</strong> Computer vision, natural language processing, robotics<br>
-                    <strong>Systems:</strong> Distributed machine learning, edge computing, AI safety
+                    <strong>Edge AI:</strong> System-level optimization for boosting inference, training, and compression workloads at the edge.<br>
+                    <strong>Serverless Workflow Management:</strong> Cost-performance optimization in collaborative edge and cloud environments.<br>
+                    <strong>Reproducible Benchmarking and Measurement:</strong> Characterizing various workloads, focusing on performance, reliability, energy consumption, and environmental impact across cloud, HPC, edge, and IoT.
                 </div>
             </div>
 
+            <!--
             <div class="quick-links">
                 <h3>Quick Links</h3>
                 <div class="links-grid">
@@ -534,197 +741,603 @@
                     <a href="#" class="link-item">Twitter</a>
                 </div>
             </div>
+            -->
+        </section>
+
+        <!-- Teaching Section -->
+        <section id="teaching" class="section">
+            <h2>Teaching</h2>
+
+            <!-- Current Teaching -->
+            <div class="teaching-category">
+                <h3 class="teaching-year-title">Current (Fall 2025)</h3>
+                
+                <div class="course">
+                    <div class="course-header">
+                        <div class="course-title">CSCI 4730/6730: Operating Systems</div>
+                        <div class="course-term"></div>
+                    </div>
+                    <div class="course-links">
+                        <a href="./class-F25-OS.html" class="course-link">Course Website</a>
+                        <a href="./classes/F25-CSCI4730-6730/syllabus-f25.pdf" class="course-link" target="_new">Syllabus</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Past Teaching -->
+<!--             <div class="teaching-category">
+                <h3 class="teaching-year-title">Past</h3>
+                
+                <div class="course">
+                    <div class="course-header">
+                        <div class="course-title">CSCI 4795/6795: Cloud Computing</div>
+                        <div class="course-term">SP'19 - SP'24</div>
+                    </div>
+                </div>
+
+                <div class="course">
+                    <div class="course-header">
+                        <div class="course-title">CSCI 8795: Advanced Cloud Computing</div>
+                        <div class="course-term">FA'19 - FA'22</div>
+                    </div>
+                </div>
+
+                <div class="course">
+                    <div class="course-header">
+                        <div class="course-title">CSCI 4730/6730: Operating Systems</div>
+                        <div class="course-term">FA'21, FA'23, SP'25</div>
+                    </div>
+                </div>
+
+                <div class="course">
+                    <div class="course-header">
+                        <div class="course-title">CSCI 4730: OS for Undergrads</div>
+                        <div class="course-term">FA'24</div>
+                    </div>
+                </div>
+
+                <div class="course">
+                    <div class="course-header">
+                        <div class="course-title">CSCI 8000: Advanced Topics in Computer Science</div>
+                        <div class="course-term">FA'18</div>
+                    </div>
+                </div>
+
+            </div> -->
         </section>
 
         <!-- Publications Section -->
         <section id="publications" class="section">
             <h2>Publications</h2>
             <div class="section-intro">
-                Selected recent publications. For a complete list, see my <a href="#">Google Scholar profile</a>.
+                <!-- Selected recent publications. For a complete list, see my <a href="https://scholar.google.com/citations?user=O0-eXcoAAAAJ">Google Scholar profile</a>. -->
+                
+                (<u>Name</u>: a student author under my supervision)
             </div>
 
-            <div class="publication">
-                <div class="pub-title">Towards Robust Deep Learning: A Comprehensive Framework for Adversarial Training</div>
-                <div class="pub-authors"><span class="author-self">John Smith</span>, Alice Johnson, Bob Wilson</div>
-                <div class="pub-venue">International Conference on Machine Learning (ICML), 2024</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">Code</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                    <a href="#" class="pub-link">Slides</a>
+            <!-- 2025 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2025</h3>
+                
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2025-edge-convergo.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Convergo: Multi-SLO-Aware Scheduling for Heterogeneous AI Accelerators on Edge Devices
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Ting Jiang</u>, Jianwei Hao, <u>Sushruth Harsha</u>, <u>Rakandhiya D. Rachmanto</u>, Arief Setyanto, Lakshmish Ramaswamy, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Edge Computing and Communications (EDGE), 2025</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/10852314' style="text-decoration: none; color: inherit;" target="_new">
+                            Knowledge Distillation in Object Detection for Resource-Constrained Edge Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Arief Setyanto, Theopilus Bayu Sasongko, Muhammad Ainul Fikri, Dhani Ariatmanto, I. Made Artha Agastya, <u>Rakandhiya D. Rachmanto</u>, Affan Ardana, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE Access, 2025</div>
+                </div>
+
+            </div>
+
+            <!-- 2024 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2024</h3>
+                
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://link.springer.com/chapter/10.1007/978-3-031-78456-9_11' style="text-decoration: none; color: inherit;" target="_new">
+                            An Empirical Evaluation of the Impact of Solar Correction in NeRFs for Satellite Imagery
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Devjyoti Chakraborty</u>, Kriti Ghosh, <u>Zaki Sukma</u>, <span class="author-self">In Kee Kim</span>, Lakshmish Ramaswamy, Suchendra Bhandarkar, Deepak Mishra
+                    </div>
+                    <div class="pub-venue">27th International Conference on Pattern Recognition (ICPR), 2024</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2024-edge-ptq-compression.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Characterizing Deep Learning Model Compression with Post-Training Quantization on Accelerated Edge Devices
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Rakandhiya D. Rachmanto</u>, <u>Zaki Sukma</u>, Ahmad N. L. Nabhaan, Arief Setyanto, <u>Ting Jiang</u>, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Edge Computing and Communications (EDGE), 2024, [<B><font color='red'>Best Paper Award!</font></B>]</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://link.springer.com/article/10.1007/s00607-024-01343-5' style="text-decoration: none; color: inherit;" target="_new">
+                            Using a Random Forest to Predict Quantized Reuse Distance in an SSD Write Buffer
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Hyejin Cha, <span class="author-self">In Kee Kim</span>, Taeseok Kim
+                    </div>
+                    <div class="pub-venue">Springer Computing, 2024</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+     
+
+                 <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/10374363' style="text-decoration: none; color: inherit;" target="_new">
+                            Near-Edge Computing Aware Object Detection: A Review
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Arief Setyanto, Theo Sasongko, Muhammad Ainul Fikri, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE Access, 2025</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+            </div>
+
+
+
+            <!-- 2023 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2023</h3>
+                
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ucare.cs.uchicago.edu/pdf/bibe23-cnt.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            CNT: Semi-Automatic Translation from CWL to Nextflow for Genomic Workflows
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Martin L. Putra, <span class="author-self">In Kee Kim</span>, Haryadi S. Gunawi, Robert L. Grossman
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Bioinformatics and Bioengineering (BIBE), 2023</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2023-ipccc-dynaes.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            DynaES: Dynamic Energy Scheduling for Energy Harvesting Environmental Sensors
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Emmanuel Oni</u>, <span class="author-self">In Kee Kim</span>, Lakshmish Ramaswamy
+                    </div>
+                    <div class="pub-venue">IEEE International Performance, Computing, and Communications Conference (IPCCC), 2023</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/10429930' style="text-decoration: none; color: inherit;" target="_new">
+                            Toward Low-Cost and Sustainable IoT Systems for Soil Monitoring in Coastal Wetlands
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, Rajneesh Sharma, Mary B. Fleming, <span class="author-self">In Kee Kim</span>, Deepak R. Mishra, et al.
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Collaboration and Internet Computing (CIC), 2023</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://dl.acm.org/doi/abs/10.1145/3578245.3584690' style="text-decoration: none; color: inherit;" target="_new">
+                            A Study of Java Microbenchmark Tail Latencies
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Sen He, <span class="author-self">In Kee Kim</span>, Wei Wang
+                    </div>
+                    <div class="pub-venue">ACM/SPEC International Conference on Performance Engineering (ICPE), Data Challenge Track, 2023</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://dl.acm.org/doi/full/10.1145/3546192' style="text-decoration: none; color: inherit;" target="_new">
+                            Reaching for the Sky: Maximizing Deep Learning Inference Throughput on Edge Devices with AI Multi-Tenancy
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Piyush Subedi</u>, Lakshmish Ramaswamy, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">ACM Transactions on Internet Technology, 2023</div>
+                </div>
+
+            </div>
+
+
+            <!-- 2022 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2022</h3>
+                
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2022-ic2e-cloudbruno.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            CloudBruno: A Low-Overhead Online Workload Prediction Framework for Cloud Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Vinodh K. Jayakumar, <u>Shivani Arbat</u>, <span class="author-self">In Kee Kim</span>, Wei Wang
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), 2022</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://www.sciencedirect.com/science/article/abs/pii/S1574119222000955' style="text-decoration: none; color: inherit;" target="_new">
+                            Privacy invasion via smart-home hub in personal area networks
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Omid Setayeshfar, Karthika Subramani, Xingzi Yuan, Raunak Dey, Dezhi Hong, <span class="author-self">In Kee Kim</span>, Kyu Hyung Lee
+                    </div>
+                    <div class="pub-venue">Pervasive and Mobile Computing, 2022</div>
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2022-edge-faasbench.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            EdgeFaaSBench: Benchmarking Edge Devices Using Serverless Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Kaustubh R. Rajput</u>, <u>Chinmay D. Kulkarni</u>, Byungjin Cho, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Edge Computing and Communications (EDGE), 2022</div>
+                </div>                
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2022-aaai-wgangp.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Wasserstein Adversarial Transformer for Cloud Workload Prediction
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Shivani Arbat</u>, <u>Vinodh K. Jayakumar</u>, Jaewoo Lee, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">The 34th Annual Conference on Innovative Applications of Artificial Intelligence (AAAI/IAAI), 2022</div>
+                </div>    
+
+            </div>
+
+
+            <!-- 2021 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2021</h3>
+       
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://arxiv.org/abs/2107.12486' style="text-decoration: none; color: inherit;" target="_new">
+                            AI Multi-Tenancy on Edge: Concurrent Deep Learning Model Executions and Dynamic Model Placements on Edge Devices
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Piyush Subedi</u>, <u>Jianwei Hao</u>, <span class="author-self">In Kee Kim</span>, Lakshmish Ramaswamy
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://arxiv.org/abs/2107.03467' style="text-decoration: none; color: inherit;" target="_new">
+                            An Empirical Analysis of VM Startup Times in Public IaaS Clouds
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Ting Jiang</u>, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2021</div>
+                </div>                
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://arxiv.org/abs/2107.03467' style="text-decoration: none; color: inherit;" target="_new">
+                            An Empirical Analysis of VM Startup Times in Public IaaS Clouds: Extended Report
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Ting Jiang</u>, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">arXiv, 2021</div>
+                </div>                
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2021-ase-metior.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Performance Testing for Cloud Computing with Dependent Data Bootstrapping
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Sen He, Tianyi Liu, Palden Lama, Jaewoo Lee, <span class="author-self">In Kee Kim</span>, Wei Wang
+                    </div>
+                    <div class="pub-venue">IEEE/ACM International Conference on Automated Software Engineering (ASE), 2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/9556231' style="text-decoration: none; color: inherit;" target="_new">
+                            ChatterHub: Privacy Invasion via Smart Home Hub
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Omid Setayeshfar, Karthika Subramani, Xingzi Yuan, Raunak Dey, Dezhi Hong, Kyu Hyung Lee, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Smart Computing (SMARTCOMP), 2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://dl.acm.org/doi/abs/10.1145/3452411.3464446' style="text-decoration: none; color: inherit;" target="_new">
+                            Characterizing Resource Heterogeneity in Edge Devices for Deep Learning Inferences
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Piyush Subedi</u>, <span class="author-self">In Kee Kim</span>, Lakshmish Ramaswamy
+                    </div>
+                    <div class="pub-venue">ACM International Workshop on System and Network Telemetry and Analytics (ACM SNTA@HPDC), 2021</div>
+                </div>
+                   
+            </div>
+
+            <!-- 2020 or before Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2020 or before</h3>
+                
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2020-ipdps-loaddynamics.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            A Self-Optimized Generic Workload Prediction Framework for Cloud Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Vinodh K. Jayakumar, Jaewoo Lee, <span class="author-self">In Kee Kim</span>, Wei Wang 
+                    </div>
+                    <div class="pub-venue">IEEE International Parallel and Distributed Processing Symposium (IPDPS), 2020</div>
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/document/9102411' style="text-decoration: none; color: inherit;" target="_new">
+                            Forecasting Cloud Application Workloads With CloudInsight for Predictive Resource Management
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Cloud Computing, 2020</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/9057470' style="text-decoration: none; color: inherit;" target="_new">
+                            Guaranteeing Performance SLAs of Cloud Applications Under Resource Storms
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jinho Hwang, Wei Wang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Cloud Computing, 2019</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2018-cloud-cloudinsight.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            CloudInsight: Utilizing a Council of Experts to Predict Future Cloud Application Workloads
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2018</div>
+                </div>       
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2018-ispdc-orchestra.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Orchestra: Guaranteeing Performance SLAs for Cloud Applications by Avoiding Resource Storms
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jinho Hwang, Wei Wang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Symposium on Parallel and Distributed Computing (ISPDC), 2018</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2017-ic2e-icsi.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            iCSI: A Cloud Garbage VM Collector for Addressing Inactive VMs with Machine Learning
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Sai Zeng, Christopher Young, Jinho Hwang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), 2017</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2017-middleware-inavtivevms.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            A Supervised Learning Model for Identifying Inactive VMs in Private Cloud Data Centers
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Sai Zeng, Christopher Young, Jinho Hwang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">ACM/IFIP/USENIX International Middleware Conference (Middleware), 2016</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2016-cloud-predscale.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Empirical Evaluation of Workload Forecasting Techniques for Predictive Cloud Resource Scaling
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2016</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2015-bigdata-wdcloud.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            WDCloud: An End to End System for Large-Scale Watershed Delineation on Cloud
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jacob Steele, Anthony M Castronova, Jonathan Goodall, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Big Data (IEEE BigData), 2015</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2015-cloud-pics.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            PICS: A Public IaaS Cloud Simulator
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2015</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2014-ucc-kim.pdf' style="text-decoration: none; color: inherit;" target="_new">
+                            Comprehensive Elastic Resource Management to Ensure Predictable Performance for Scientific Applications on Public IaaS Clouds
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jacob Steele, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE/ACM International Conference on Utility and Cloud Computing, (UCC), 2014</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://journals.sagepub.com/doi/abs/10.1177/0037549707085438' style="text-decoration: none; color: inherit;" target="_new">
+                            Adaptive and Mobility-predictive Quantization-based Communication Data Management for High Performance Distributed Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Sung Ho Jang and Jong Sik Lee,
+                    </div>
+                    <div class="pub-venue">SIMULATION: Transactions of The Society for Modeling and Simulation International, 2007</div>
                 </div>
             </div>
 
-            <div class="publication">
-                <div class="pub-title">Efficient Neural Architecture Search with Progressive Pruning</div>
-                <div class="pub-authors">Sarah Lee, <span class="author-self">John Smith</span>, Michael Brown</div>
-                <div class="pub-venue">Advances in Neural Information Processing Systems (NeurIPS), 2023</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">Code</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Interpretable Machine Learning for Healthcare: A Survey and Future Directions</div>
-                <div class="pub-authors"><span class="author-self">John Smith</span>, Emily Chen, David Taylor</div>
-                <div class="pub-venue">Nature Machine Intelligence, 2023</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                    <a href="#" class="pub-link">Dataset</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Federated Learning with Differential Privacy: Algorithms and Analysis</div>
-                <div class="pub-authors">Lisa Wang, <span class="author-self">John Smith</span>, Robert Johnson</div>
-                <div class="pub-venue">International Conference on Learning Representations (ICLR), 2023</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">Code</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                </div>
-            </div>
-
-            <div class="publication">
-                <div class="pub-title">Self-Supervised Learning for Computer Vision: A Comprehensive Survey</div>
-                <div class="pub-authors"><span class="author-self">John Smith</span>, Kevin Zhang, Anna Martinez</div>
-                <div class="pub-venue">IEEE Transactions on Pattern Analysis and Machine Intelligence, 2022</div>
-                <div class="pub-links">
-                    <a href="#" class="pub-link">PDF</a>
-                    <a href="#" class="pub-link">BibTeX</a>
-                </div>
-            </div>
         </section>
 
-        <!-- Teaching Section -->
-        <section id="teaching" class="section">
-            <h2>Teaching</h2>
-            <div class="section-intro">
-                I am passionate about teaching and mentoring the next generation of computer scientists.
-            </div>
 
-            <div class="course">
-                <div class="course-header">
-                    <div class="course-title">CSCI 4370/6370: Machine Learning</div>
-                    <div class="course-term">Spring 2024</div>
-                </div>
-                <div class="course-description">
-                    Introduction to machine learning covering supervised learning, unsupervised learning, and deep learning. 
-                    Students will implement key algorithms and work on practical projects using real-world datasets.
-                </div>
-                <div class="course-links">
-                    <a href="#" class="course-link">Course Website</a>
-                    <a href="#" class="course-link">Syllabus</a>
-                    <a href="#" class="course-link">Lecture Notes</a>
-                </div>
-            </div>
-
-            <div class="course">
-                <div class="course-header">
-                    <div class="course-title">CSCI 8850: Advanced Machine Learning</div>
-                    <div class="course-term">Fall 2023</div>
-                </div>
-                <div class="course-description">
-                    Graduate-level course covering advanced topics in machine learning including deep learning, 
-                    reinforcement learning, and modern optimization techniques.
-                </div>
-                <div class="course-links">
-                    <a href="#" class="course-link">Course Website</a>
-                    <a href="#" class="course-link">Syllabus</a>
-                    <a href="#" class="course-link">Projects</a>
-                </div>
-            </div>
-
-            <div class="course">
-                <div class="course-header">
-                    <div class="course-title">CSCI 1302: Software Development</div>
-                    <div class="course-term">Spring 2023</div>
-                </div>
-                <div class="course-description">
-                    Fundamental software development concepts including object-oriented programming, data structures, 
-                    and software engineering principles using Java.
-                </div>
-                <div class="course-links">
-                    <a href="#" class="course-link">Course Website</a>
-                    <a href="#" class="course-link">Syllabus</a>
-                </div>
-            </div>
-        </section>
 
         <!-- News Section -->
-        <section id="news" class="section">
+<!--         <section id="news" class="section">
             <h2>News</h2>
             
             <div class="news-item">
-                <div class="news-date">Mar 2024</div>
+                <div class="news-date">July 2024</div>
                 <div class="news-content">
-                    <span class="news-highlight">Paper accepted</span> at ICML 2024! 
-                    Our work on robust deep learning will be presented in Vienna.
+                    <span class="news-highlight">Best Paper Award</span> at EDGE 2024! 
+                    Our work on deep learning compression on edge devices received best paper award at EDGE'24
                 </div>
             </div>
 
-            <div class="news-item">
-                <div class="news-date">Feb 2024</div>
-                <div class="news-content">
-                    Received <span class="news-highlight">NSF CAREER Award</span> for research on 
-                    interpretable machine learning ($500K over 5 years).
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Jan 2024</div>
-                <div class="news-content">
-                    Invited to give a <span class="news-highlight">keynote talk</span> at the 
-                    International Conference on AI Safety.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Dec 2023</div>
-                <div class="news-content">
-                    New PhD student <span class="news-highlight">Alex Chen</span> joined our research group.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Nov 2023</div>
-                <div class="news-content">
-                    Paper on federated learning accepted at <span class="news-highlight">ICLR 2024</span>.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Oct 2023</div>
-                <div class="news-content">
-                    Presented our work at the <span class="news-highlight">Google AI Summit</span> in Mountain View.
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-date">Sep 2023</div>
-                <div class="news-content">
-                    Started collaboration with <span class="news-highlight">MIT CSAIL</span> on 
-                    privacy-preserving machine learning.
-                </div>
-            </div>
         </section>
-
+ -->
         <!-- CV Section -->
-        <section id="cv" class="section">
+<!--         <section id="cv" class="section">
             <h2>Curriculum Vitae</h2>
             <div class="cv-section">
                 <p>Download my complete CV for detailed information about my background, research, and achievements.</p>
                 <br>
                 <a href="#" class="cv-link">Download CV (PDF)</a>
             </div>
-        </section>
+        </section> -->
 
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2024 John Smith. Last updated: March 2024.</p>
+            <p>&copy; 2025 In Kee Kim. Last updated: July 2025.</p>
         </div>
     </div>
 

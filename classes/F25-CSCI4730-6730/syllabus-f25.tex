@@ -1,0 +1,197 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=black,
+    breaklinks=true
+}
+
+\title{\textbf{Fall 2025 CSCI 4730/6730 -- Operating Systems}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{General Information}
+
+\begin{itemize}[leftmargin=1cm]
+    \item \textbf{Instructor:} In Kee Kim, \href{mailto:inkee.kim@uga.edu}{inkee.kim@uga.edu}
+    \item \textbf{Credits:} 4
+    \item \textbf{Time/Classroom:}
+    \begin{itemize}[leftmargin=1cm]
+        \item Tues/Thurs -- 02:20 p.m. -- 03:35 p.m. (@Cedar Street Building C, 0674)
+        \item Wed -- 03:00 p.m. -- 03:50 p.m. (@Food Science, 0131)
+    \end{itemize}
+    \item \textbf{Office Hours:} By email appointment
+\end{itemize}
+
+\section*{Course Description}
+
+This course will focus on the key concepts in modern operating systems. Specific topics include process management, synchronization mechanisms, scheduling strategies, deadlock detection/avoidance, memory management, file systems, protection and security, virtualization, and distributed systems.
+
+\vspace{0.5cm}
+\noindent
+\textbf{Required textbooks:}
+\begin{itemize}[leftmargin=1cm]
+    \item \textit{Operating Systems Concepts}, 9th or 10th Edition by A. Silberschatz, P. B. Galvin and G. Gagne
+\end{itemize}
+
+\section*{Course Topics (Tentative)}
+
+\begin{itemize}[leftmargin=1cm]
+    \item Overview of Operating-System Structures
+    \item Process and Thread Management
+    \item Process Synchronization and Scheduling
+    \item Memory Management
+    \item File Systems and I/O
+    \item Advanced Topics including Distributed Systems, Security, and Virtualization
+\end{itemize}
+
+\section*{Prerequisites}
+
+\begin{itemize}[leftmargin=1cm]
+    \item CSCI4720 (Computer Architecture and Organization) or equivalent course
+\end{itemize}
+
+\section*{Programming Assignments}
+
+3 -- 4 programming projects will be assigned. Late submissions will automatically lose 20\% of the total point value per 24-hour period, up to 48 hours. All programming assignments must be done in C.
+
+\begin{itemize}[leftmargin=1cm]
+    \item Late Submission $\sim$24 hrs: Your score will be up to 80\% (20\% penalty)
+    \item Late Submission $\sim$48 hrs: Your score will be up to 60\% (40\% penalty)
+    \item Late Submission after 48 hrs: Your score will be zero.
+\end{itemize}
+
+\section*{Quizzes}
+
+These quizzes may consist of multiple-choice questions, identifying keywords, or answering a short question. The quizzes may address any material previously covered in the class or in the programming assignments.
+
+\begin{itemize}[leftmargin=1cm]
+    \item Quizzes will be scheduled after the completion of one or two chapters. Approximately 6 quizzes are planned (3 before the midterm exam, 3 after the midterm exam).
+    \item Note: The quiz schedules and topics are subject to change.
+    \item A study guide will be provided for the first quiz only.
+\end{itemize}
+
+\section*{Grading Distribution (Tentative)}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Items} & \textbf{Undergrad} & \textbf{Graduate Students} \\
+\midrule
+Class Participation & 5\% & 5\% \\
+Quiz & 15\% & 20\% \\
+Programming Assignments & 30\% & 20\% \\
+Midterm Exam & 25\% & 25\% \\
+Final Exam & 25\% & 25\% \\
+Presentation & -- & 5\% \\
+\midrule
+\textbf{Total} & 100\% & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Grading Cutoffs}
+
+This class uses standard grade cutoffs.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\textbf{A} & \textbf{A-} & \textbf{B+} & \textbf{B} & \textbf{B-} & \textbf{C+} & \textbf{C} & \textbf{C-} & \textbf{D} & \textbf{F} \\
+\hline
+{[}93, 100{]} & {[}90, 92{]} & {[}87, 89{]} & {[}83-86{]} & {[}80-82{]} & {[}77-79{]} & {[}73-76{]} & {[}70-72{]} & {[}60-69{]} & $< 60$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\section*{Academic Integrity and Ethics}
+
+All students are responsible for maintaining the highest standards of honesty and integrity in every phase of their academic careers. The penalties for academic dishonesty are severe, and ignorance is not an acceptable defense.
+
+\subsection*{Examples of Academic Dishonesty in This Course}
+
+The following behaviors are strictly prohibited and will result in academic penalties:
+
+\subsubsection*{1. Plagiarism and Unauthorized Use of AI}
+\begin{itemize}[leftmargin=1cm]
+    \item Copying code from online sources, other students, or previous semesters without proper citation
+    \item Using GitHub Copilot, ChatGPT, or other AI tools to generate code unless explicitly permitted
+    \item Submitting work that you previously submitted for another course (self-plagiarism)
+    \item Sharing your code with other students or posting it online
+    \item Multiple submissions of the same work across different assignments or courses
+    \item Falsification of citations or claiming others' work as your own
+\end{itemize}
+
+\subsubsection*{2. Unauthorized Assistance}
+\begin{itemize}[leftmargin=1cm]
+    \item Collaborating on individual programming assignments
+    \item Looking at another student's code or allowing them to look at yours
+    \item Discussing implementation details of programming assignments with classmates
+    \item Using online tutoring services or paid assistance for assignments
+    \item Accessing previous years' solutions or test materials
+\end{itemize}
+
+\subsubsection*{3. Attendance Fraud and Lying}
+\begin{itemize}[leftmargin=1cm]
+    \item \textbf{Having someone else sign you in for class attendance (proxy attendance)}
+    \item \textbf{Signing in for another student who is not present}
+    \item Falsifying reasons for late submissions or missed exams
+    \item Altering graded work and requesting a regrade
+    \item Providing false documentation for absences
+    \item Falsification of data in programming assignments or lab reports
+    \item Fabricating experimental results or program outputs
+\end{itemize}
+
+\subsubsection*{4. Exam Violations}
+\begin{itemize}[leftmargin=1cm]
+    \item Using any electronic devices during exams unless explicitly permitted
+    \item Accessing notes, textbooks, or online resources during closed-book exams
+    \item Communicating with others during exams
+    \item Sharing or discussing exam content with students who haven't taken it
+    \item Cheating on exams through any means (copying, signals, unauthorized materials)
+    \item Taking photos or recordings of exam questions
+    \item Using bathroom breaks to access unauthorized materials
+\end{itemize}
+
+\subsection*{Consequences}
+
+First offense {\bf typically results in a zero on the assignment} and a report to the Office of Academic Honesty. Subsequent violations may lead to course failure and academic probation or dismissal.
+
+\subsection*{Clarification on Collaboration}
+
+\begin{itemize}[leftmargin=1cm]
+    \item \textbf{Allowed:} Discussing general concepts, debugging strategies, and course material
+    \item \textbf{Not Allowed:} Sharing code, looking at others' code, or working together on implementation
+    \item \textbf{When in doubt:} Ask the instructor BEFORE submitting the assignment
+\end{itemize}
+
+\noindent
+For the complete UGA Academic Honesty Policy, visit: 
+\begin{itemize}[leftmargin=1cm]
+    \item \url{https://honesty.uga.edu/Academic-Honesty-Policy/}
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,137 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+
+\geometry{
+    left=2.5cm,
+    right=2.5cm,
+    top=2.5cm,
+    bottom=2.5cm
+}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=black
+}
+
+\title{\textbf{SP 2024 -- CSCI 4795/6795 Cloud Computing}}
+\author{In Kee Kim\\
+School of Computing\\
+The University of Georgia\\
+\href{mailto:inkee.kim@uga.edu}{inkee.kim@uga.edu}}
+\date{December 27, 2023}
+
+\begin{document}
+
+\maketitle
+
+\section{General Information}
+
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Instructor:} In Kee Kim (\href{mailto:inkee.kim@uga.edu}{inkee.kim@uga.edu})
+    \item \textbf{Course website:} \url{http://cobweb.cs.uga.edu/kim/classes/S24-CSCI4795-6795/}
+    \item \textbf{Class meeting time and location:}
+    \begin{itemize}
+        \item Tue and Thurs: 5:30 -- 6:45 p.m. @BOYD 0328
+        \item Wed: 5:30 -- 6:20 p.m. @BOYD 0328
+    \end{itemize}
+    \item \textbf{Office Hours/Location:}
+    \begin{itemize}
+        \item TBD
+        \item TBD
+    \end{itemize}
+\end{itemize}
+
+\section{Course Overview}
+
+Cloud has become a de facto computing infrastructure in many business and research organizations to deliver various user-facing, business, and scientific applications to end users. In this course, you will learn the underlying technologies and concepts that create the current cloud computing and infrastructure, and obtain hands-on experience in designing and implementing modern cloud applications.
+
+This is an introductory cloud computing course designed for both senior-level undergraduate students and graduate students. This class will cover the following concepts and topics (tentative):
+
+\begin{itemize}[leftmargin=*]
+    \item Concept and Definition of Cloud Computing
+    \item Virtualization and Data centers
+    \item Cloud Service Models: IaaS, PaaS, SaaS
+    \item Public Clouds, Private Clouds, and Hybrid Clouds
+    \item Cloud Resource Management
+    \item Cloud Infrastructure Management Systems
+    \item Cloud Storage, NoSQL, and Distributed Key/Value Store
+    \item Containers and Microservices
+    \item Container Orchestration Systems like Kubernetes and Docker Swarm
+    \item Cloud Function and Serverless Computing
+    \item Cloud Security
+    \item Cloud IoT, Mobile Clouds
+    \item Edge/Fog Computing, AI at the edge
+    \item Big Data Processing Frameworks -- Hadoop, Spark, Storm.
+\end{itemize}
+
+\textbf{Prerequisite:} CSCI 2720 -- ``Data Structures.'' In addition, prior knowledge of operating systems, distributed systems, computer architecture, and computer networks will be a plus.
+
+\textbf{Textbooks:} This class does not require a textbook, but there are two optional textbooks/references:
+\begin{enumerate}
+    \item \textit{Cloud Computing: Theory and Practice}. Dan Marinescu, 2nd Edition, Elsevier, 2017
+    \item \textit{Cloud Computing for Machine Learning and Cognitive Applications}, Kai Hwang, MIT Press, 2017
+\end{enumerate}
+
+The lecture will be based on the slides provided by the instructor. Also, the students will be required to read research papers and technical documents about cloud computing.
+
+\section{Grading}
+
+\subsection{Distribution}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+\textbf{Component} & \textbf{Undergrad} & \textbf{Graduate} \\
+\midrule
+Programming Assignment (4+ assignments)$^*$ & 40\% & 30\% \\
+Midterm Exam$^\dagger$ & 20\% & 20\% \\
+Final Exam$^\dagger$ & 25\% & 25\% \\
+Quiz & 10\% & 10\% \\
+In-class Participation & 5\% & 5\% \\
+Paper Presentation & -- & 10\% \\
+\midrule
+\textbf{Total} & 100\% & 100\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{itemize}[leftmargin=*]
+    \item $^*$\textbf{Late Policy for Programming Assignments:} Less than 24 hours late -- 20\% penalty. 24 to 48 hours late -- 40\% penalty. Later than 48 hours -- 0 pt.
+    \item $^*$No email submission allowed for Programming Assignments.
+    \item $^\dagger$Both exams are closed-books/notes.
+    \item \textbf{Regrade Request:} Within one week of distribution of your grade. After one week, regrade requests will not be considered.
+\end{itemize}
+
+\subsection{Grade Cutoffs}
+
+This class uses the standard grade cutoffs.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{cc|cc|cc}
+\toprule
+\textbf{Grade} & \textbf{Range} & \textbf{Grade} & \textbf{Range} & \textbf{Grade} & \textbf{Range} \\
+\midrule
+A  & [93, 100] & B- & [80, 82] & D+ & [67, 69] \\
+A- & [90, 92]  & C+ & [77, 79] & D  & [63, 66] \\
+B+ & [87, 89]  & C  & [73, 76] & D- & [60, 62] \\
+B  & [83, 86]  & C- & [70, 72] & F  & [0, 59]  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Academic Honesty}
+
+All students must follow the Academic Honesty Policy of the University of Georgia. Dishonest behavior will not be tolerated and will result into failing the course. The detailed information of this policy can be found at \url{https://honesty.uga.edu/Academic-Honesty-Policy/}. If there are any issues regarding this policy, please contact the instructor immediately.
+
+\end{document}

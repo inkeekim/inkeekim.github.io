@@ -3,21 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Group - Dr. John Smith</title>
+    <title>ACE Lab - Research Group</title>
     <style>
+        /* Universal Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Base Styles */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
-            line-height: 1.5;
+            line-height: 1.6;
             color: #2d3748;
             background: #ffffff;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 400;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
         /* Fixed Navigation */
@@ -36,7 +43,7 @@
         }
 
         .nav-container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
             display: flex;
@@ -80,39 +87,300 @@
 
         /* Main Content */
         .main-content {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 100px 20px 40px;
         }
 
-        /* Page Header */
-        .page-header {
+        /* Hero Section */
+        .hero-section {
             text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 2px solid #eee;
+            margin-bottom: 60px;
         }
 
-        .page-title {
-            font-size: 2.5rem;
+        .hero-section h1 {
+            font-size: 3rem;
             font-weight: 700;
             color: #1a202c;
-            margin-bottom: 15px;
-            letter-spacing: -0.025em;
+            margin-bottom: 20px;
         }
 
-        .page-subtitle {
-            font-size: 1.2rem;
-            color: #666;
+        .lab-name {
+            font-size: 1.8rem;
+            color: #BA0C2F;
+            font-weight: 600;
             margin-bottom: 10px;
         }
 
-        .page-description {
-            font-size: 1rem;
+        .lab-full-name {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
             color: #4a5568;
-            max-width: 600px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        /* Section Styles */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #1a202c;
+            margin-bottom: 25px;
+            font-weight: 600;
+            border-bottom: 3px solid #BA0C2F;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        /* Research Areas */
+        .research-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .research-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #BA0C2F;
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .research-card h3 {
+            font-size: 1.3rem;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        .research-card p {
+            color: #4a5568;
             line-height: 1.6;
+        }
+
+        /* Team Members - Simplified */
+        .team-section {
+            margin-bottom: 50px;
+        }
+
+        .team-section h3 {
+            font-size: 1.5rem;
+            color: #1a202c;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+
+        .member-list {
+            margin-bottom: 20px;
+        }
+
+        .member-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .member-item:last-child {
+            border-bottom: none;
+        }
+
+        .member-info {
+            display: flex;
+            align-items: baseline;
+            gap: 15px;
+            flex: 1;
+        }
+
+        .member-publications {
+            color: #BA0C2F;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-left: 5px;
+        }
+
+        .member-name {
+            font-weight: 600;
+            color: #1a202c;
+            min-width: 220px;
+            font-size: 1.1rem;
+        }
+
+        .member-topic {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .member-year {
+            color: #999;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+
+        .alumni-position {
+            color: #666;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        /* Alumni single line for MS */
+        .alumni-ms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .alumni-ms-item {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        
+        .alumni-ms-name {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .alumni-ms-info {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .member-item {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .member-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .member-year {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Recent Publications */
+        .publication-list {
+            margin-top: 20px;
+        }
+
+        .publication-item {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 3px solid #3182ce;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .publication-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 8px;
+        }
+
+        .publication-authors {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .publication-venue {
+            font-size: 0.9rem;
+            color: #3182ce;
+            font-style: italic;
+        }
+
+        .publication-year {
+            float: right;
+            background: #BA0C2F;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* Keywords */
+        .keywords {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        .keyword {
+            background: #e2e8f0;
+            color: #1a202c;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .keyword:hover {
+            background: #BA0C2F;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: #4a5568;
+        }
+
+        .contact-info a {
+            color: #BA0C2F;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
         }
 
         /* Back Link */
@@ -130,211 +398,33 @@
             text-decoration: underline;
         }
 
-        /* Sections */
-        .section {
-            margin-bottom: 50px;
-        }
-
-        .section h2 {
-            font-size: 1.8rem;
-            color: #1a202c;
-            margin-bottom: 25px;
-            font-weight: 600;
-            border-bottom: 2px solid #BA0C2F;
-            padding-bottom: 10px;
-            letter-spacing: -0.025em;
-        }
-
-        .section-intro {
-            color: #4a5568;
-            margin-bottom: 30px;
-            font-style: italic;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        /* Student Lists */
-        .student-category {
-            margin-bottom: 35px;
-        }
-
-        .category-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #1a202c;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .student-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .student-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #f5f5f5;
-            transition: background-color 0.3s ease;
-        }
-
-        .student-item:hover {
-            background-color: #f8f9fa;
-            padding-left: 10px;
-            margin-left: -10px;
-            margin-right: -10px;
-            padding-right: 10px;
-        }
-
-        .student-item:last-child {
-            border-bottom: none;
-        }
-
-        .student-info {
-            flex: 1;
-        }
-
-        .student-name {
-            font-weight: 600;
-            color: #1a202c;
-            margin-right: 15px;
-        }
-
-        .student-research {
-            color: #666;
-            font-size: 0.95rem;
-            margin-left: 5px;
-        }
-
-        .student-year {
-            color: #888;
-            font-size: 0.9rem;
-            min-width: 100px;
-            text-align: right;
-        }
-
-        /* Alumni specific styling */
-        .alumni-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 8px 0;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .alumni-item:hover {
-            background-color: #f8f9fa;
-            padding-left: 10px;
-            margin-left: -10px;
-            margin-right: -10px;
-            padding-right: 10px;
-        }
-
-        .alumni-item:last-child {
-            border-bottom: none;
-        }
-
-        .alumni-info {
-            flex: 1;
-        }
-
-        .alumni-name {
-            font-weight: 600;
-            color: #1a202c;
-        }
-
-        .alumni-current {
-            color: #666;
-            font-size: 0.9rem;
-            margin-top: 2px;
-        }
-
-        .alumni-year {
-            color: #888;
-            font-size: 0.9rem;
-            min-width: 80px;
-            text-align: right;
-        }
-
-        /* Research Areas */
-        .research-areas {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-        }
-
-        .research-areas h3 {
-            color: #1a202c;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .research-areas ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .research-areas li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e9ecef;
-            color: #4a5568;
-        }
-
-        .research-areas li:last-child {
-            border-bottom: none;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 2px solid #eee;
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-        }
-
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                gap: 20px;
-            }
-
-            .main-content {
-                padding: 120px 15px 40px;
-            }
-
-            .page-title {
+            .hero-section h1 {
                 font-size: 2rem;
             }
 
-            .students-grid {
-                display: block;
+            .lab-name {
+                font-size: 1.5rem;
             }
 
-            .alumni-list {
-                display: block;
+            .section h2 {
+                font-size: 1.5rem;
             }
-        }
 
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
+            .research-areas {
+                grid-template-columns: 1fr;
+            }
 
-        /* Scroll indicator */
-        .nav.scrolled {
-            background: rgba(153, 10, 39, 0.98);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .publication-year {
+                float: none;
+                display: inline-block;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -342,14 +432,13 @@
     <!-- Fixed Navigation -->
     <nav class="nav" id="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-name">John Smith</a>
+            <a href="index.html" class="nav-name">In Kee Kim</a>
             <div class="nav-links">
                 <a href="index.html#about" class="nav-link">About</a>
-                <a href="index.html#publications" class="nav-link">Publications</a>
                 <a href="index.html#teaching" class="nav-link">Teaching</a>
+                <a href="index.html#publications" class="nav-link">Publications</a>
                 <a href="research-group.html" class="nav-link active">Research Group</a>
-                <a href="index.html#news" class="nav-link">News</a>
-                <a href="index.html#cv" class="nav-link">CV</a>
+                <a href="./CV/CV_InKeeKim.pdf" target="_new">CV</a>
             </div>
         </div>
     </nav>
@@ -359,93 +448,170 @@
         <!-- Back Link -->
         <a href="index.html" class="back-link">← Back to Main Page</a>
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <h1 class="page-title">Research Group</h1>
-            <div class="page-subtitle">Machine Learning & AI Lab</div>
-            <p class="page-description">
-                Our research group focuses on advancing the frontiers of artificial intelligence and machine learning. 
-                We work on developing novel algorithms, systems, and applications that address real-world challenges.
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1>Research Group</h1>
+            <div class="lab-name">ACE Lab</div>
+            <div class="lab-full-name">Adaptive Computing & Edge Intelligence</div>
+            <p class="hero-description">
+                Welcome to the ACE Lab at the University of Georgia! Led by Dr. In Kee Kim, our research group 
+                focuses on developing efficient computing systems and AI algorithms for diverse environments—from 
+                high-performance cloud data centers to resource-limited edge devices. We create novel optimization 
+                techniques, benchmarking frameworks, and system architectures that address fundamental challenges 
+                in distributed computing, edge AI inference, serverless workflows, and performance measurement. 
+                Our work combines rigorous theoretical analysis with practical system implementations, emphasizing 
+                reproducibility, scalability, and energy efficiency.
             </p>
         </div>
 
         <!-- Research Areas -->
-        <div class="research-areas">
-            <h3>Current Research Areas</h3>
-            <ul>
-                <li><strong>Deep Learning:</strong> Neural architecture search, interpretable deep learning, adversarial robustness</li>
-                <li><strong>Machine Learning:</strong> Federated learning, transfer learning, few-shot learning</li>
-                <li><strong>Computer Vision:</strong> Object detection, image segmentation, medical image analysis</li>
-                <li><strong>Natural Language Processing:</strong> Language models, sentiment analysis, machine translation</li>
-                <li><strong>AI Safety:</strong> Explainable AI, fairness in ML, privacy-preserving machine learning</li>
-            </ul>
-        </div>
+<!--         <section class="section">
+            <h2>Research Areas</h2>
+            <div class="research-areas">
+                <div class="research-card">
+                    <h3>Edge AI & System Optimization</h3>
+                    <p>System-level optimization for boosting inference, training, and compression workloads at the edge. 
+                    Developing efficient AI algorithms for resource-constrained devices, including object detection, 
+                    knowledge distillation, and AI multi-tenancy for maximizing edge device utilization.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Serverless & Workflow Management</h3>
+                    <p>Cost-performance optimization in collaborative edge and cloud environments. Building scalable 
+                    serverless computing frameworks, workflow orchestration systems, and cloud-edge collaborative 
+                    architectures for scientific and enterprise applications.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Reproducible Benchmarking & Measurement</h3>
+                    <p>Characterizing various workloads focusing on performance, reliability, energy consumption, 
+                    and environmental impact across cloud, HPC, edge, and IoT environments. Developing benchmarking 
+                    frameworks and tools for systematic evaluation of distributed systems.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Cloud Computing & Performance Engineering</h3>
+                    <p>Building predictable cloud systems with performance guarantees, workload prediction using 
+                    machine learning, resource storm mitigation, and VM lifecycle management. Ensuring SLA 
+                    compliance and optimal resource utilization in multi-tenant cloud environments.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Model Compression & Optimization</h3>
+                    <p>Advanced techniques for compressing deep learning models through post-training quantization, 
+                    pruning, and knowledge distillation. Enabling efficient deployment of AI models on accelerated 
+                    edge devices while maintaining accuracy.</p>
+                </div>
+                <div class="research-card">
+                    <h3>IoT & Environmental Monitoring</h3>
+                    <p>Developing sustainable IoT systems for environmental sensing, smart agriculture, and ecological 
+                    research. Focus on energy harvesting sensors, low-cost monitoring solutions, and cyberinfrastructure 
+                    for long-term environmental data collection.</p>
+                </div>
+            </div>
+        </section> -->
 
-        <!-- Current Students -->
+        <!-- Keywords -->
+<!--         <div class="keywords">
+            <span class="keyword">Edge AI</span>
+            <span class="keyword">Serverless Computing</span>
+            <span class="keyword">Workflow Management</span>
+            <span class="keyword">Performance Engineering</span>
+            <span class="keyword">Reproducible Benchmarking</span>
+            <span class="keyword">Model Compression</span>
+            <span class="keyword">Cloud-Edge Collaboration</span>
+            <span class="keyword">Energy Efficiency</span>
+            <span class="keyword">Environmental Monitoring</span>
+            <span class="keyword">System Optimization</span>
+        </div> -->
+
+        <!-- Team Members -->
         <section class="section">
             <h2>Research Group Members</h2>
             
-            <!-- PhD Students -->
-            <div class="student-category">
-                <h3 class="category-title">PhD Students</h3>
-                <ul class="student-list">
-                    <li class="student-item">
-                        <div class="student-info">
-                            <span class="student-name">Emily Zhang</span>
-                            <span class="student-research">- Interpretable ML for healthcare</span>
-                        </div>
-                        <div class="student-year">2022-Present</div>
-                    </li>
-                    <li class="student-item">
-                        <div class="student-info">
-                            <span class="student-name">Michael Rodriguez</span>
-                            <span class="student-research">- Federated learning and privacy</span>
-                        </div>
-                        <div class="student-year">2023-Present</div>
-                    </li>
-                </ul>
-            </div>
+            <div class="team-section">
 
-            <!-- MS Students -->
-            <div class="student-category">
-                <h3 class="category-title">MS Students</h3>
-                <ul class="student-list">
-                    <li class="student-item">
-                        <div class="student-info">
-                            <span class="student-name">Sarah Kim</span>
-                            <span class="student-research">- Computer vision and medical imaging</span>
+                <h3>PhD Students</h3>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Ting Jiang</span>
+                            <span class="member-topic">- Edge AI Scheduling (Current: Univ. of Maryland Lecturer)
+                                <span class="member-publications">[EDGE'25, EDGE'24, CLOUD'21a]</span>
+                            </span>
                         </div>
-                        <div class="student-year">2023-Present</div>
-                    </li>
-                    <li class="student-item">
-                        <div class="student-info">
-                            <span class="student-name">David Chen</span>
-                            <span class="student-research">- Natural language processing</span>
+                        <span class="member-year">2019-Present</span>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Sushruth Harsha</span>
+                            <span class="member-topic">- Scalable Federated Learning
+                                <span class="member-publications">[EDGE'25]</span>
+                            </span>
                         </div>
-                        <div class="student-year">2024-Present</div>
-                    </li>
-                </ul>
-            </div>
+                        <span class="member-year">2021-Present</span>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Devjyoti Chakraborty</span>
+                            <span class="member-topic">- NeRF, Computer Vision, Edge AI
+                                <span class="member-publications">[ICPR'24]</span>
+                            </span>
+                        </div>
+                        <span class="member-year">2023-Present</span>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Zaki Indra Sukma</span>
+                            <span class="member-topic">- SW/HW Co-Design, AI Inference Optimization
+                                <span class="member-publications">[ICPR'24, EDGE'24]</span>
+                            </span>
+                        </div>
+                        <span class="member-year">2024-Present</span>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Rakandhiya Rachmanto</span>
+                            <span class="member-topic">- Model Quantization and Edge AI
+                                <span class="member-publications">[EDGE'25, EDGE'24 Best Paper]</span>
+                            </span>
+                        </div>
+                        <span class="member-year">2024-Present</span>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Priyanka Shrestha</span>
+                            <span class="member-topic">- Serverless Edge Computing</span>
+                        </div>
+                        <span class="member-year">2025-Present</span>
+                    </div>
+                </div>
 
-            <!-- Undergraduate Students -->
-            <div class="student-category">
-                <h3 class="category-title">Undergraduate Researchers</h3>
-                <ul class="student-list">
-                    <li class="student-item">
-                        <div class="student-info">
-                            <span class="student-name">Alex Johnson</span>
-                            <span class="student-research">- Reinforcement learning and robotics</span>
+                <h3>MS Students (Thesis)</h3>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Aaditya Mankar</span>
+                            <span class="member-topic">- HPC Performance Benchmarking</span>
                         </div>
-                        <div class="student-year">2024-Present</div>
-                    </li>
-                    <li class="student-item">
-                        <div class="student-info">
-                            <span class="student-name">Jessica Liu</span>
-                            <span class="student-research">- Edge computing and distributed ML</span>
+                        <span class="member-year">2024-Present</span>
+                    </div>
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">Bandhan Patel</span>
+                            <span class="member-topic">- Serverless Workflow Management</span>
                         </div>
-                        <div class="student-year">2024-Present</div>
-                    </li>
-                </ul>
+                        <span class="member-year">2024-Present</span>
+                    </div>
+                </div>
+
+<!--                 <h3>MS Students (Non-Thesis)</h3>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div class="member-info">
+                            <span class="member-name">TBD</span>
+                            <span class="member-topic">- TBD</span>
+                        </div>
+                        <span class="member-year">2024-Present</span>
+                    </div>
+                </div> -->
+
             </div>
         </section>
 
@@ -453,66 +619,187 @@
         <section class="section">
             <h2>Alumni</h2>
             
-            <!-- PhD Alumni -->
-            <div class="student-category">
-                <h3 class="category-title">PhD Graduates</h3>
-                <ul class="student-list">
-                    <li class="alumni-item">
-                        <div class="alumni-info">
-                            <div class="alumni-name">Dr. Maria Gonzalez</div>
-                            <div class="alumni-current">Research Scientist, Google DeepMind</div>
+            <div class="team-section">
+                <h3>PhD Graduates</h3>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Dr. Jianwei Hao</span>
+                            <span class="alumni-position">Assistant Professor, Governors State University, IL
+                                <span class="member-publications">[ACM ToIT'23, IPCCC'23, CIC'23, CLOUD'21a, CLOUD'21b, SNTA'21]</span>
+                            </span>
                         </div>
-                        <div class="alumni-year">2023</div>
-                    </li>
-                    <li class="alumni-item">
-                        <div class="alumni-info">
-                            <div class="alumni-name">Dr. James Wang</div>
-                            <div class="alumni-current">Assistant Professor, Carnegie Mellon University</div>
-                        </div>
-                        <div class="alumni-year">2022</div>
-                    </li>
-                </ul>
-            </div>
+                        <span class="member-year">2024</span>
+                    </div>
+                </div>
 
-            <!-- MS Alumni -->
-            <div class="student-category">
-                <h3 class="category-title">MS Graduates</h3>
-                <ul class="student-list">
-                    <li class="alumni-item">
-                        <div class="alumni-info">
-                            <div class="alumni-name">Lisa Thompson</div>
-                            <div class="alumni-current">ML Engineer, Microsoft</div>
+                <h3>MS with Thesis</h3>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Zaki Indra Sukma</span>
+                            <span class="alumni-position">Current PhD Student, UGA
+                                <span class="member-publications">[ICPR'24, EDGE'24]</span>
+                            </span>
                         </div>
-                        <div class="alumni-year">2023</div>
-                    </li>
-                    <li class="alumni-item">
-                        <div class="alumni-info">
-                            <div class="alumni-name">Robert Davis</div>
-                            <div class="alumni-current">Data Scientist, Netflix</div>
+                        <span class="member-year">2024</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Gabriela Adams</span>
+                            <span class="alumni-position">AI Program</span>
                         </div>
-                        <div class="alumni-year">2022</div>
-                    </li>
-                    <li class="alumni-item">
-                        <div class="alumni-info">
-                            <div class="alumni-name">Amy Foster</div>
-                            <div class="alumni-current">Senior Software Engineer, Apple</div>
+                        <span class="member-year">2023</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Kaustubh Rajput</span>
+                            <span class="alumni-position">NCR Corporation
+                                <span class="member-publications">[EDGE'22]</span>
+                            </span>
                         </div>
-                        <div class="alumni-year">2021</div>
-                    </li>
-                    <li class="alumni-item">
-                        <div class="alumni-info">
-                            <div class="alumni-name">Kevin Park</div>
-                            <div class="alumni-current">Research Engineer, OpenAI</div>
+                        <span class="member-year">2021</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Piyush Subedi</span>
+                            <span class="alumni-position">Google
+                                <span class="member-publications">[ACM ToIT'23, CLOUD'21b, SNTA'21]</span>
+                            </span>
                         </div>
-                        <div class="alumni-year">2021</div>
-                    </li>
-                </ul>
+                        <span class="member-year">2021</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Shivani Arbat</span>
+                            <span class="alumni-position">ADP
+                                <span class="member-publications">[IAAI'22]</span>
+                            </span>
+                        </div>
+                        <span class="member-year">2021</span>
+                    </div>
+                </div>
+
+                <h3>MS with Non-Thesis (Project)</h3>
+                <div class="member-list">
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Siddhi Chitgopkar</span>
+                        </div>
+                        <span class="member-year">2025</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Avani Pathak</span>
+                        </div>
+                        <span class="member-year">2025</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Sharvani Chelumalla</span>
+                        </div>
+                        <span class="member-year">2025</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Vinaya Birajdar</span>
+                        </div>
+                        <span class="member-year">2025</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Supriya Edamalapati</span>
+                        </div>
+                        <span class="member-year">2024</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Revanth Koganti</span>
+                        </div>
+                        <span class="member-year">2024</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Dinesh Sai Bodala</span>
+                        </div>
+                        <span class="member-year">2024</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Kevin J. Nyquist</span>
+                        </div>
+                        <span class="member-year">2024</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Jaya Simha Reddy Kurri</span>
+                        </div>
+                        <span class="member-year">2024</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Emmanuel Oni</span>
+                            <span class="member-publications">[IPCCC'23]</span>
+                        </div>
+                        <span class="member-year">2023</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Chinmay Kulkarni</span>
+                            <span class="member-publications">[EDGE'22]</span>
+                        </div>
+                        <span class="member-year">2021</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Chinmay Deosthali</span>
+                        </div>
+                        <span class="member-year">2021</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Radhika Bhavsar</span>
+                        </div>
+                        <span class="member-year">2020</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Akanksha Raina</span>
+                        </div>
+                        <span class="member-year">2020</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Srujana Malisetti</span>
+                        </div>
+                        <span class="member-year">2020</span>
+                    </div>
+                    <div class="member-item">
+                        <div>
+                            <span class="member-name">Lei Xian</span>
+                            <span class="member-publications">[<a href="https://ieeexplore.ieee.org/document/8998990" target="_blank" style="color: #BA0C2F; text-decoration: none;">CogMI'19</a>]</span>
+                        </div>
+                        <span class="member-year">2019</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="section">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <p><strong>Principal Investigator:</strong> Dr. In Kee Kim</p>
+                <p><strong>Email:</strong> <a href="mailto:inkee.kim@uga.edu">inkee.kim@uga.edu</a></p>
+                <p><strong>Office:</strong> BOYD 802</p>
+                <p><strong>Lab Location:</strong> BOYD 817 and 819</p>
+                <p><strong>University:</strong> University of Georgia</p>
             </div>
         </section>
 
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2024 John Smith Research Group. University of Georgia School of Computing.</p>
+            <p>&copy; 2025 ACE Lab - Adaptive Computing & Edge Intelligence. University of Georgia.</p>
         </div>
     </div>
 

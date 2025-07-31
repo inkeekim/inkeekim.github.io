@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSCI 4730/6730 - Operating Systems - Fall 2025</title>
+    <style>
+        /* Universal Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Base Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.5;
+            color: #2d3748;
+            background: #ffffff;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Fixed Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(186, 12, 47, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #dc2626;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-name {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-name:hover {
+            color: #fecaca;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #fecaca;
+            border-bottom-color: #fecaca;
+        }
+
+        /* Scroll indicator */
+        .nav.scrolled {
+            background: rgba(153, 10, 39, 0.98);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px 40px;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 30px;
+            color: #BA0C2F;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #990a26;
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 45px;
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-size: 1.6rem;
+            color: #1a202c;
+            margin-bottom: 18px;
+            font-weight: 600;
+            border-bottom: 2px solid #3182ce;
+            padding-bottom: 8px;
+            letter-spacing: -0.025em;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Course page specific styles */
+        .section p {
+            margin-bottom: 8px;
+        }
+
+        .section p a {
+            color: #BA0C2F;
+            text-decoration: none;
+        }
+
+        .section p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grade table styles */
+        .grade-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .grade-table th {
+            background: #BA0C2F;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .grade-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .grade-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .grade-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        /* Schedule table styles */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .schedule-table th {
+            background: #1a202c;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .schedule-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .week-number {
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .event-highlight {
+            background: #fef2f2;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #BA0C2F;
+            font-weight: 500;
+        }
+
+        /* Course topics list */
+        .topics-list {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .topics-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .topics-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .topics-list li:last-child {
+            border-bottom: none;
+        }
+
+        .topics-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #BA0C2F;
+            font-weight: bold;
+        }
+
+        /* Policy boxes */
+        .policy-box {
+            background: #fff8f1;
+            border: 1px solid #fed7aa;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .policy-title {
+            font-weight: 600;
+            color: #1a202c;
+            margin-bottom: 10px;
+        }
+
+        .policy-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .policy-box a {
+            color: #BA0C2F;
+            text-decoration: none;
+        }
+
+        .policy-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* Grade cutoffs table */
+        .cutoff-table {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .cutoff-item {
+            text-align: center;
+            padding: 10px 15px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            min-width: 90px;
+        }
+
+        .cutoff-grade {
+            font-weight: 600;
+            color: #1a202c;
+            display: block;
+            font-size: 1.1rem;
+        }
+
+        .cutoff-range {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .main-content {
+                padding: 120px 15px 40px;
+            }
+
+            .course-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cutoff-table {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cutoff-item {
+                width: 100%;
+                max-width: 150px;
+            }
+
+            .schedule-table {
+                font-size: 0.9rem;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 6px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-name">In Kee Kim</a>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#teaching" class="nav-link">Teaching</a>
+                <a href="index.html#publications" class="nav-link">Publications</a>
+                <a href="research-group.html" class="nav-link">Research Group</a>
+                <!-- <a href="index.html#news" class="nav-link">News</a> -->
+                <a href="./CV/CV_InKeeKim.pdf" target="_new">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Back Link -->
+        <a href="index.html" class="back-link">← Back to Main Page</a>
+
+        <!-- Course Header -->
+        <div class="section">
+            <h2>CSCI 4730/6730: Operating Systems</h2>
+            <div style="color: #BA0C2F; font-weight: 600; margin-bottom: 20px;">Fall 2025</div>
+            
+            <p><strong>Instructor:</strong> In Kee Kim</p>
+            <p><strong>Email:</strong> <a href="mailto:inkee.kim@uga.edu">inkee.kim@uga.edu</a></p>
+            <p><strong>Class Time/Location:</strong><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Tues/Thurs: 2:20 – 3:35 PM @ Cedar Street Building C 0674<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Wed: 3:00 – 3:50 PM @ Food Science 0131</p>
+            <p><strong>Office Hours:</strong><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Instructor: Wed 4:00-5:00 PM @ BOYD 802<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• TA: TBD @ BOYD 819</p>
+        </div>
+
+        <!-- Course Description -->
+        <section class="section">
+            <h2>Course Description</h2>
+            <p>CSCI 4730/6730 - Operating Systems course is to introduce the key concepts in modern operating systems. Specific topics include process management, synchronization mechanisms, scheduling strategies, deadlock detection/avoidance, memory management, file systems, protection and security, virtualization, and distributed/networked systems.</p>
+            
+            <div style="margin: 20px 0;">
+                <strong>Course Syllabus:</strong> <a href="./classes/F25-CSCI4730-6730/syllabus-f25.pdf" target="_new" style="color: #BA0C2F;">Download PDF</a>
+            </div>
+        </section>
+
+        <!-- Course Topics -->
+        <section class="section">
+            <h2>Course Topics</h2>
+            <ul style="padding-left: 20px;">
+                <li>Operating System Structure</li>
+                <li>Process and Thread Management</li>
+                <li>Process Synchronization and Scheduling</li>
+                <li>Memory Management</li>
+                <li>File System and I/O</li>
+                <li>Advanced Topics, including Virtualization, Distributed Systems, Security, etc.</li>
+            </ul>
+        </section>
+
+        <!-- Grade Distribution -->
+        <section class="section">
+            <h2>Grade Distribution</h2>
+            <table class="grade-table">
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Undergrad</th>
+                        <th>Graduate Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Class Participation</td>
+                        <td>5%</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr>
+                        <td>Quiz</td>
+                        <td>15%</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Programming Assignments</td>
+                        <td>30%</td>
+                        <td>20%</td>
+                    </tr>
+                    <tr>
+                        <td>Midterm Exam</td>
+                        <td>25%</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>Final Exam</td>
+                        <td>25%</td>
+                        <td>25%</td>
+                    </tr>
+                    <tr>
+                        <td>Presentation</td>
+                        <td>–</td>
+                        <td>5%</td>
+                    </tr>
+                    <tr style="font-weight: bold; border-top: 2px solid #e2e8f0;">
+                        <td>Total</td>
+                        <td>100%</td>
+                        <td>100%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="policy-box">
+                <div class="policy-title">Assignment Policies</div>
+                <p><strong>Late Policy for Programming Assignments:</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Less than 24 hours late: 20% penalty</li>
+                    <li>24 to 48 hours late: 40% penalty</li>
+                    <li>Later than 48 hours: 0 points</li>
+                </ul>
+                <p><strong>Important Notes:</strong></p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>All programming assignments must be done in C</li>
+                    <li>No email submission!</li>
+                    <li>Regrade requests: Within one week of grade distribution</li>
+                    <li>Both exams will be closed-book/notes</li>
+                    <li>Graduate students have an additional presentation requirement (5%)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Grade Cutoffs -->
+        <section class="section">
+            <h2>Grade Cutoffs</h2>
+            <p>This class uses the standard grade cutoff points.</p>
+            <div class="cutoff-table">
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">A</span>
+                    <span class="cutoff-range">[93, 100]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">A-</span>
+                    <span class="cutoff-range">[90, 92]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">B+</span>
+                    <span class="cutoff-range">[87, 89]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">B</span>
+                    <span class="cutoff-range">[83, 86]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">B-</span>
+                    <span class="cutoff-range">[80, 82]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">C+</span>
+                    <span class="cutoff-range">[77, 79]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">C</span>
+                    <span class="cutoff-range">[73, 76]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">C-</span>
+                    <span class="cutoff-range">[70, 72]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">D</span>
+                    <span class="cutoff-range">[60, 69]</span>
+                </div>
+                <div class="cutoff-item">
+                    <span class="cutoff-grade">F</span>
+                    <span class="cutoff-range">[0, 59]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Textbook and Prerequisites -->
+        <section class="section">
+            <h2>Textbook & Prerequisites</h2>
+            <div style="background: #f8f9fa; padding: 20px; border-radius: 6px; margin: 20px 0;">
+                <div style="margin-bottom: 15px;">
+                    <strong>Textbook:</strong><br>
+                    Operating Systems Concepts, 9th or 10th Edition<br>
+                    by A. Silberschatz, P. B. Galvin and G. Gagne
+                </div>
+                <div>
+                    <strong>Prerequisite:</strong><br>
+                    CSCI 4720 -- Computer Architecture and Organization
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Schedule -->
+        <section class="section">
+            <h2>(Tentative) Class Schedule</h2>
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Month</th>
+                        <th>Week (Days)</th>
+                        <th>Topics</th>
+                        <th>Events (Subject to change)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td rowspan="4">Aug.</td>
+                        <td class="week-number">1 (8/13 - 8/14)</td>
+                        <td>Course Introduction</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">2 (8/19 - 8/21)</td>
+                        <td>Ch #1: OS Overview</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">3 (8/26 – 8/28)</td>
+                        <td>Ch #2: OS Structure</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">4 (9/2 – 9/4)</td>
+                        <td>Ch #3: Processes<br><span style="color: red;">No Class 9/1 (Labor Day)</span></td>
+                        <td><span class="event-highlight">PA #1 Out</span></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Sep.</td>
+                        <td class="week-number">5 (9/9 – 9/11)</td>
+                        <td>Ch #4: Threads and Concurrency</td>
+                        <td><span class="event-highlight">Quiz 1 (Ch#1 -- #3)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">6 (9/16 – 9/18)</td>
+                        <td>Ch #5: CPU Scheduling</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">7 (9/23 – 9/25)</td>
+                        <td>Ch #6: Synchronization Tools</td>
+                        <td><span class="event-highlight">Quiz 2 (Ch#4 and #5)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">8 (9/30 - 10/2)</td>
+                        <td>Ch #7: Advanced Sync.<br>Midterm Review</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Oct.</td>
+                        <td class="week-number">9 (10/7 - 10/9)</td>
+                        <td><span style="color: blue; font-weight: bold;">Midterm (10/7 or 10/9 - TBD)</span><br>Ch #8: Deadlock</td>
+                        <td><span class="event-highlight">PA #2 Out</span></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">10 (10/14 – 10/16)</td>
+                        <td>Ch #9: Main Memory</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">11 (10/21 – 10/23)</td>
+                        <td>Ch #10: Virtual Memory</td>
+                        <td><span class="event-highlight">Quiz 3 (Ch#8 -- #9)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">12 (10/28 – 10/30)</td>
+                        <td>Ch #10: Virtual Memory (cont.)<br>Ch #13: FS Interface</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Nov.</td>
+                        <td class="week-number">13 (11/4 – 11/6)</td>
+                        <td>Ch #14/#15: FS Implementation/Internals</td>
+                        <td><span class="event-highlight">PA #3 Out</span></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">14 (11/11 – 11/13)</td>
+                        <td>Ch #16/#17: Security/Protection<br><span style="color: red;">Grad Presentation</span></td>
+                        <td><span class="event-highlight">Quiz 4 (Ch#10, #13)</span></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">15 (11/18 – 11/20)</td>
+                        <td><span style="color: red;">Grad Presentation</span><br>Final Exam Review</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">16 (11/25)</td>
+                        <td>Course Wrap-up<br><span style="color: red;">No Class 11/26-28 (Thanksgiving)</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2" style="text-align: center; padding: 15px;">
+                            <span style="color: blue; font-size: 1.1rem;">Final Exam Week: Dec. 4-10</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Academic Honesty -->
+        <section class="section">
+            <h2>Academic Honesty</h2>
+            <div class="policy-box">
+                <p>All students must follow the <a href="https://honesty.uga.edu/Academic-Honesty-Policy/" style="color: #BA0C2F;">Academic Honesty Policy</a> of the University of Georgia. Academic dishonesty includes, but is not limited to:</p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>Plagiarism</li>
+                    <li>Cheating on exams or assignments</li>
+                    <li>Unauthorized collaboration</li>
+                    <li>Falsification of data or citations</li>
+                    <li>Multiple submissions of the same work</li>
+                </ul>
+                <p><strong>Important:</strong> Any form of academic dishonesty will not be tolerated and will result in:</p>
+                <ul style="margin: 10px 0; padding-left: 20px;">
+                    <li>A failing grade for the assignment or exam</li>
+                    <li>Potential failure of the course</li>
+                    <li>Referral to the Office of Academic Honesty</li>
+                </ul>
+                <p>For detailed information about academic honesty violations, consequences, and procedures, please refer to the  <a href="./classes/F25-CSCI4730-6730/syllabus-f25.pdf" target="_new" style="color: #BA0C2F; font-weight: bold;">course syllabus</a>.</p>
+                <p>If you have any questions or concerns regarding this policy, please contact the instructor immediately.</p>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; 2025 In Kee Kim. CSCI 4730/6730 - Operating Systems, Fall 2025.</p>
+        </div>
+    </div>
+
+    <script>
+        // Scroll effect for navbar
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+
+            function handleScroll() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+</body>
+</html>
