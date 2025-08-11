@@ -209,25 +209,10 @@
             text-decoration: underline;
         }
 
-        /* Sections - FIXED: 초기에 보이도록 수정 */
+        /* Sections */
         .section {
             margin-bottom: 45px;
             scroll-margin-top: 80px;
-            /* 애니메이션 제거 또는 초기값 변경 */
-            opacity: 1; /* 변경: 0 -> 1 */
-            transform: translateY(0); /* 변경: translateY(20px) -> translateY(0) */
-            transition: all 0.6s ease;
-        }
-
-        /* 애니메이션을 원한다면 별도 클래스로 관리 */
-        .section.fade-in-ready {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
 
         .section h2 {
@@ -628,6 +613,18 @@
             font-size: 0.9rem;
         }
 
+        /* Fade in animation */
+        .section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
@@ -721,7 +718,7 @@
         <section id="about" class="section">
             <h2>About</h2>
             <div class="about-text">
-                I am an Associate Professor in the <a href="https://computing.uga.edu">School of Computing</a> at the <a href='https://www.uga.edu/'>University of Georgia</a>. I completed my Ph.D. in Computer Science in 2018 at the University of Virginia. 
+                I am an Associate Professor in the <a href="https://computing.uga.edu">School of Computing</a> at the <a href='https://www.uga.edu/'>University of Georgia</a>a. I completed my Ph.D. in Computer Science in 2018 at the University of Virginia. 
 
             </div>
             
@@ -934,7 +931,7 @@
                     <div class="pub-authors">
                         Arief Setyanto, Theo Sasongko, Muhammad Ainul Fikri, <span class="author-self">In Kee Kim</span>
                     </div>
-                    <div class="pub-venue">IEEE Access, 2024</div>
+                    <div class="pub-venue">IEEE Access, 2025</div>
                     <!--
                     <div class="pub-links">
                         <a href="#" class="pub-link">PDF</a>
@@ -1023,32 +1020,338 @@
             </div>
 
 
-            <!-- More years would continue here... -->
+            <!-- 2022 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2022</h3>
+                
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2022-ic2e-cloudbruno.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            CloudBruno: A Low-Overhead Online Workload Prediction Framework for Cloud Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Vinodh K. Jayakumar, <u>Shivani Arbat</u>, <span class="author-self">In Kee Kim</span>, Wei Wang
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), 2022</div>
+                    <!--
+                    <div class="pub-links">
+                        <a href="#" class="pub-link">PDF</a>
+                        <a href="#" class="pub-link">Code</a>
+                        <a href="#" class="pub-link">BibTeX</a>
+                    </div>
+                    -->
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://www.sciencedirect.com/science/article/abs/pii/S1574119222000955' style="text-decoration: none; color: inherit;" target="_blank">
+                            Privacy invasion via smart-home hub in personal area networks
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Omid Setayeshfar, Karthika Subramani, Xingzi Yuan, Raunak Dey, Dezhi Hong, <span class="author-self">In Kee Kim</span>, Kyu Hyung Lee
+                    </div>
+                    <div class="pub-venue">Pervasive and Mobile Computing, 2022</div>
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2022-edge-faasbench.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            EdgeFaaSBench: Benchmarking Edge Devices Using Serverless Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Kaustubh R. Rajput</u>, <u>Chinmay D. Kulkarni</u>, Byungjin Cho, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Edge Computing and Communications (EDGE), 2022</div>
+                </div>                
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2022-aaai-wgangp.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            Wasserstein Adversarial Transformer for Cloud Workload Prediction
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Shivani Arbat</u>, <u>Vinodh K. Jayakumar</u>, Jaewoo Lee, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">The 34th Annual Conference on Innovative Applications of Artificial Intelligence (AAAI/IAAI), 2022</div>
+                </div>    
+
+            </div>
+
+
+            <!-- 2021 Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2021</h3>
+       
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://arxiv.org/abs/2107.12486' style="text-decoration: none; color: inherit;" target="_blank">
+                            AI Multi-Tenancy on Edge: Concurrent Deep Learning Model Executions and Dynamic Model Placements on Edge Devices
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Piyush Subedi</u>, <u>Jianwei Hao</u>, <span class="author-self">In Kee Kim</span>, Lakshmish Ramaswamy
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://arxiv.org/abs/2107.03467' style="text-decoration: none; color: inherit;" target="_blank">
+                            An Empirical Analysis of VM Startup Times in Public IaaS Clouds
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Ting Jiang</u>, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2021</div>
+                </div>                
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://arxiv.org/abs/2107.03467' style="text-decoration: none; color: inherit;" target="_blank">
+                            An Empirical Analysis of VM Startup Times in Public IaaS Clouds: Extended Report
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Ting Jiang</u>, Wei Wang, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">arXiv, 2021</div>
+                </div>                
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2021-ase-metior.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            Performance Testing for Cloud Computing with Dependent Data Bootstrapping
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Sen He, Tianyi Liu, Palden Lama, Jaewoo Lee, <span class="author-self">In Kee Kim</span>, Wei Wang
+                    </div>
+                    <div class="pub-venue">IEEE/ACM International Conference on Automated Software Engineering (ASE), 2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/9556231' style="text-decoration: none; color: inherit;" target="_blank">
+                            ChatterHub: Privacy Invasion via Smart Home Hub
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Omid Setayeshfar, Karthika Subramani, Xingzi Yuan, Raunak Dey, Dezhi Hong, Kyu Hyung Lee, <span class="author-self">In Kee Kim</span>
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Smart Computing (SMARTCOMP), 2021</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://dl.acm.org/doi/abs/10.1145/3452411.3464446' style="text-decoration: none; color: inherit;" target="_blank">
+                            Characterizing Resource Heterogeneity in Edge Devices for Deep Learning Inferences
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <u>Jianwei Hao</u>, <u>Piyush Subedi</u>, <span class="author-self">In Kee Kim</span>, Lakshmish Ramaswamy
+                    </div>
+                    <div class="pub-venue">ACM International Workshop on System and Network Telemetry and Analytics (ACM SNTA@HPDC), 2021</div>
+                </div>
+                   
+            </div>
+
+            <!-- 2020 or before Publications -->
+            <div class="publication-year">
+                <h3 class="year-title">2020 or before</h3>
+                
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2020-ipdps-loaddynamics.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            A Self-Optimized Generic Workload Prediction Framework for Cloud Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        Vinodh K. Jayakumar, Jaewoo Lee, <span class="author-self">In Kee Kim</span>, Wei Wang 
+                    </div>
+                    <div class="pub-venue">IEEE International Parallel and Distributed Processing Symposium (IPDPS), 2020</div>
+                </div>
+
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/document/9102411' style="text-decoration: none; color: inherit;" target="_blank">
+                            Forecasting Cloud Application Workloads With CloudInsight for Predictive Resource Management
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Cloud Computing, 2020</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://ieeexplore.ieee.org/abstract/document/9057470' style="text-decoration: none; color: inherit;" target="_blank">
+                            Guaranteeing Performance SLAs of Cloud Applications Under Resource Storms
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jinho Hwang, Wei Wang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE Transactions on Cloud Computing, 2019</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2018-cloud-cloudinsight.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            CloudInsight: Utilizing a Council of Experts to Predict Future Cloud Application Workloads
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2018</div>
+                </div>       
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2018-ispdc-orchestra.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            Orchestra: Guaranteeing Performance SLAs for Cloud Applications by Avoiding Resource Storms
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jinho Hwang, Wei Wang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Symposium on Parallel and Distributed Computing (ISPDC), 2018</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2017-ic2e-icsi.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            iCSI: A Cloud Garbage VM Collector for Addressing Inactive VMs with Machine Learning
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Sai Zeng, Christopher Young, Jinho Hwang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Engineering (IC2E), 2017</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2017-middleware-inavtivevms.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            A Supervised Learning Model for Identifying Inactive VMs in Private Cloud Data Centers
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Sai Zeng, Christopher Young, Jinho Hwang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">ACM/IFIP/USENIX International Middleware Conference (Middleware), 2016</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2016-cloud-predscale.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            Empirical Evaluation of Workload Forecasting Techniques for Predictive Cloud Resource Scaling
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2016</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2015-bigdata-wdcloud.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            WDCloud: An End to End System for Large-Scale Watershed Delineation on Cloud
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jacob Steele, Anthony M Castronova, Jonathan Goodall, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Big Data (IEEE BigData), 2015</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2015-cloud-pics.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            PICS: A Public IaaS Cloud Simulator
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Wei Wang, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE International Conference on Cloud Computing (CLOUD), 2015</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='./papers/2014-ucc-kim.pdf' style="text-decoration: none; color: inherit;" target="_blank">
+                            Comprehensive Elastic Resource Management to Ensure Predictable Performance for Scientific Applications on Public IaaS Clouds
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Jacob Steele, Yanjun Qi, Marty Humphrey
+                    </div>
+                    <div class="pub-venue">IEEE/ACM International Conference on Utility and Cloud Computing, (UCC), 2014</div>
+                </div>
+
+                <div class="publication">
+                    <div class="pub-title">
+                        <a href='https://journals.sagepub.com/doi/abs/10.1177/0037549707085438' style="text-decoration: none; color: inherit;" target="_blank">
+                            Adaptive and Mobility-predictive Quantization-based Communication Data Management for High Performance Distributed Computing
+                        </a>
+                    </div>
+                    <div class="pub-authors">
+                        <span class="author-self">In Kee Kim</span>, Sung Ho Jang and Jong Sik Lee,
+                    </div>
+                    <div class="pub-venue">SIMULATION: Transactions of The Society for Modeling and Simulation International, 2007</div>
+                </div>
+            </div>
 
         </section>
 
+
+
+        <!-- News Section -->
+<!--         <section id="news" class="section">
+            <h2>News</h2>
+            
+            <div class="news-item">
+                <div class="news-date">July 2024</div>
+                <div class="news-content">
+                    <span class="news-highlight">Best Paper Award</span> at EDGE 2024! 
+                    Our work on deep learning compression on edge devices received best paper award at EDGE'24
+                </div>
+            </div>
+
+        </section>
+ -->
+        <!-- CV Section -->
+<!--         <section id="cv" class="section">
+            <h2>Curriculum Vitae</h2>
+            <div class="cv-section">
+                <p>Download my complete CV for detailed information about my background, research, and achievements.</p>
+                <br>
+                <a href="#" class="cv-link">Download CV (PDF)</a>
+            </div>
+        </section> -->
+
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2025 In Kee Kim. Last updated: August 2025.</p>
+            <p>&copy; 2025 In Kee Kim. Last updated: July 2025.</p>
         </div>
     </div>
 
     <script>
-        // 수정된 JavaScript - 애니메이션 옵션 제공
+        // Smooth scrolling and active nav link updating
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('.section');
             const navbar = document.getElementById('navbar');
-            
-            // 애니메이션 사용 여부 설정 (false로 설정하면 애니메이션 없이 모든 섹션이 즉시 표시됨)
-            const useAnimation = false;
-
-            // 애니메이션을 사용하는 경우에만 fade-in 클래스 추가
-            if (useAnimation) {
-                sections.forEach(section => {
-                    section.classList.add('fade-in-ready');
-                });
-            }
 
             // Update active nav link based on scroll position
             function updateActiveLink() {
@@ -1079,10 +1382,8 @@
                 updateActiveLink();
             }
 
-            // Fade in sections on scroll (애니메이션 사용 시에만)
+            // Fade in sections on scroll
             function fadeInSections() {
-                if (!useAnimation) return; // 애니메이션 사용하지 않으면 건너뛰기
-                
                 sections.forEach(section => {
                     const sectionTop = section.getBoundingClientRect().top;
                     const triggerBottom = window.innerHeight * 0.8;
@@ -1094,21 +1395,12 @@
             }
 
             // Initial fade in
-            if (useAnimation) {
-                fadeInSections();
-            } else {
-                // 애니메이션 없이 모든 섹션 즉시 표시
-                sections.forEach(section => {
-                    section.classList.add('visible');
-                });
-            }
+            fadeInSections();
 
             // Event listeners
             window.addEventListener('scroll', () => {
                 handleScroll();
-                if (useAnimation) {
-                    fadeInSections();
-                }
+                fadeInSections();
             });
 
             // Smooth scroll for nav links
@@ -1130,13 +1422,6 @@
 
             // Initialize
             updateActiveLink();
-            
-            // 디버깅을 위한 콘솔 출력
-            console.log('페이지 로드 완료');
-            console.log('섹션 개수:', sections.length);
-            sections.forEach(section => {
-                console.log('섹션 ID:', section.id, '표시 상태:', window.getComputedStyle(section).opacity);
-            });
         });
     </script>
 </body>
