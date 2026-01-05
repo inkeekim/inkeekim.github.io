@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSCI 4730/6730 - Operating Systems - Fall 2025</title>
+    <title>CSCI 4730/6730 - Operating Systems - Spring 2026</title>
     <style>
         /* Universal Reset */
         * {
@@ -219,7 +219,7 @@
         }
 
         .week-number {
-            font-weight: 600;
+            font-weight: 400;
             color: #1a202c;
         }
 
@@ -386,16 +386,18 @@
         <!-- Course Header -->
         <div class="section">
             <h2>CSCI 4730/6730: Operating Systems</h2>
-            <div style="color: #BA0C2F; font-weight: 600; margin-bottom: 20px;">Fall 2025</div>
+            <div style="color: #BA0C2F; font-weight: 600; margin-bottom: 20px;">Spring 2026</div>
             
             <p><strong>Instructor:</strong> In Kee Kim</p>
             <p><strong>Email:</strong> <a href="mailto:inkee.kim@uga.edu">inkee.kim@uga.edu</a></p>
             <p><strong>Class Time/Location:</strong><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• Tues/Thurs: 2:20 – 3:35 PM @ Cedar Street Building C 0674<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• Wed: 3:00 – 3:50 PM @ Food Science 0131</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Location: Cedar Street Building C 0674<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Mon: 1:15 PM – 2:10 PM<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Tues/Thurs: 1:15 PM – 2:35 PM
+            </p>
             <p><strong>Office Hours:</strong><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• Instructor: Wed 4:00-5:00 PM @ BOYD 802<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;• TA: Raka Rachmanto (<a href="mailto:rakandhiya.rachmanto@uga.edu">rakandhiya.rachmanto@uga.edu</a>): Tue 11:00-01:00 PM @ BOYD 819</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;• Instructor: Thurs 4:15-5:15 PM @ BOYD 802<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;• TA: TBD (<a href="mailto:tbd@uga.edu">tbd@uga.edu</a>): TBD @ BOYD 819</p>
         </div>
 
         <!-- Course Description -->
@@ -404,7 +406,7 @@
             <p>CSCI 4730/6730 - Operating Systems course is to introduce the key concepts in modern operating systems. Specific topics include process management, synchronization mechanisms, scheduling strategies, deadlock detection/avoidance, memory management, file systems, protection and security, virtualization, and distributed/networked systems.</p>
             
             <div style="margin: 20px 0;">
-                <strong>Course Syllabus:</strong> <a href="./classes/F25-CSCI4730-6730/syllabus-f25.pdf" target="_blank" style="color: #BA0C2F;">Download PDF</a>
+                <strong>Course Syllabus:</strong> <a href="./classes/S26-CSCI4730-6730/syllabus_S26_OS.pdf" target="_blank" style="color: #BA0C2F;">Download PDF</a>
             </div>
         </section>
 
@@ -434,14 +436,9 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Class Participation</td>
-                        <td>5%</td>
-                        <td>5%</td>
-                    </tr>
-                    <tr>
                         <td>Quiz</td>
-                        <td>20%</td>
-                        <td>20%</td>
+                        <td>25%</td>
+                        <td>25%</td>
                     </tr>
                     <tr>
                         <td>Programming Assignments</td>
@@ -549,7 +546,7 @@
                 </div>
                 <div>
                     <strong>Prerequisite:</strong><br>
-                    CSCI 4720 -- Computer Architecture and Organization
+                    <a href='https://computing.uga.edu/courses/content/csci-4720', target='_new'>CSCI 4720 -- Computer Architecture and Organization</a>
                 </div>
             </div>
         </section>
@@ -567,98 +564,100 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr>
-                        <td rowspan="4">Aug.</td>
-                        <td class="week-number">1 (8/13 - 8/14)</td>
-                        <td>Course Introduction</td>
+                        <td rowspan="3">Jan.</td>
+                        <td class="week-number">1 (1/12 - 1/15)</td>
+                        <td>Course Int., Ch #1, #2: OS Structure</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td class="week-number">2 (8/19 - 8/21)</td>
-                        <td>Ch #1, #2: OS Structure</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="week-number">3 (8/26 – 8/28)</td>
+                        <td class="week-number">2 (1/19 – 1/22)</td>
                         <td>Ch #3: Process</td>
-                        <td><span class="event-highlight">PA #1 Out</span></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td class="week-number">4 (9/2 – 9/4)</td>
+                        <td class="week-number">3 (1/26 – 1/29)</td>
                         <td>Ch #4: Threads and Concurrency
                         <!--<br><span style="color: red;">No Class 9/1 (Labor Day)</span>-->
                         </td>
+                        <td>
+                            <span class="event-highlight">PA #1 Out</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Feb.</td>
+                        <td class="week-number">4 (2/2 – 2/5)</td>
+                        <td>Ch #5: CPU Scheduling</td>
                         <td>
                             <span class="event-highlight">Quiz 1 (Ch#1 -- #3)</span>
                         </td>
                     </tr>
                     <tr>
-                        <td rowspan="4">Sep.</td>
-                        <td class="week-number">5 (9/9 – 9/11)</td>
-                        <td>Ch #5: CPU Scheduling (1)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="week-number">6 (9/16 – 9/18)</td>
-                        <td>Ch #5: CPU Scheduling (2)</td>
-                        <td><span class="event-highlight">Quiz 2 (Ch#4 and #5)</td>
-                    </tr>
-                    <tr>
-                        <td class="week-number">7 (9/23 – 9/25)</td>
+                        <td class="week-number">5 (2/9 – 2/12)</td>
                         <td>Ch #6: Synchronization Tools</td>
-                        <td></span></td>
-                    </tr>
-                    <tr>
-                        <td class="week-number">8 (9/30 - 10/2)</td>
-                        <td>Ch #7: Advanced Sync.<br>Midterm Review</td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td rowspan="4">Oct.</td>
-                        <td class="week-number">9 (10/7 - 10/9)</td>
-                        <td><span style="color: blue; font-weight: bold;">Midterm (10/7 or 10/9 - TBD)</span><br>Ch #8: Deadlock</td>
+                        <td class="week-number">6 (2/16 – 2/19)</td>
+                        <td>Ch #7: Advanced Sync.</td>
+                        <td>
+                            <span class="event-highlight">Quiz 2 (Ch#4 and #5)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="week-number">7 (2/23 - 2/26)</td>
+                        <td>Ch #8: Deadlock</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td rowspan="4">Mar.</td>
+                        <td class="week-number">8 (3/2 - 3/5)</td>
+                        <td><span style="color: blue; font-weight: bold;">Midterm (3/3, Ch#1 -- Ch #8)</span><br>Ch #9: Main Memory</td>
                         <td><span class="event-highlight">PA #2 Out</span></td>
                     </tr>
                     <tr>
-                        <td class="week-number">10 (10/14 – 10/16)</td>
-                        <td>Ch #9: Main Memory</td>
+                        <td class="week-number"><span style="color: red;">9 (3/9 – 3/13)</span></td>
+                        <td><span style="color: red;">Spring Break</span></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td class="week-number">11 (10/21 – 10/23)</td>
+                        <td class="week-number">10 (3/16 – 3/19)</td>
                         <td>Ch #10: Virtual Memory</td>
-                        <td><span class="event-highlight">Quiz 3 (Ch#8 -- #9)</span></td>
+                        <td>
+                        </td>
                     </tr>
                     <tr>
-                        <td class="week-number">12 (10/28 – 10/30)</td>
-                        <td>Ch #10: Virtual Memory (cont.)<br>Ch #13: FS Interface</td>
-                        <td></td>
+                        <td class="week-number">11 (3/23 – 3/26)</td>
+                        <td>
+                            Ch #13: FS Interface
+                        </td>
+                        <td>
+                            <span class="event-highlight">Quiz 3 (Ch#8 -- #9)</span>
+                        </td>
                     </tr>
                     <tr>
-                        <td rowspan="4">Nov.</td>
-                        <td class="week-number">13 (11/4 – 11/6)</td>
-                        <td>Ch #14/#15: FS Implementation/Internals</td>
+                        <td rowspan="4">Apr.</td>
+                        <td class="week-number">12 (3/30 – 4/2)</td>
+                        <td>Ch #14/#15: FS Implementation,<BR>
+                            Advance Topics
+                        </td>
                         <td><span class="event-highlight">PA #3 Out</span></td>
                     </tr>
                     <tr>
-                        <td class="week-number">14 (11/11 – 11/13)</td>
-                        <td><span style="color: red;">Grad Presentation<br>(Ch #16/#17: Security/Protection)</span></td>
+                        <td class="week-number">13 (4/6 – 4/9)</td>
+                        <td><span style="color: red;">Grad Presentation</span></td>
                         <td><span class="event-highlight">Quiz 4 (Ch#10, #13)</span></td>
                     </tr>
                     <tr>
-                        <td class="week-number">15 (11/18 – 11/20)</td>
-                        <td><span style="color: red;">Grad Presentation</span><br>Final Exam Review</td>
+                        <td class="week-number">14 (4/13 – 4/16)</td>
+                        <td><span style="color: red;">Grad Presentation</span></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td class="week-number">16 (11/25)</td>
-                        <td>Course Wrap-up<br><span style="color: red;">No Class 11/26-28 (Thanksgiving)</span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td colspan="2" style="text-align: center; padding: 15px;">
-                            <span style="color: blue; font-size: 1.1rem;">Final Exam Week: Dec. 4-10</span>
+                        <td class="week-number">15 (4/20 - 4/23)</td>
+                        <td>Course Wrap-up<br>
+                            <span style="color: blue; font-weight: bold;">Final Exam (4/23, Not cumulative)</span>
                         </td>
                         <td></td>
                     </tr>
@@ -684,14 +683,14 @@
                     <li>Potential failure of the course</li>
                     <li>Referral to the Office of Academic Honesty</li>
                 </ul>
-                <p>For detailed information about academic honesty violations, consequences, and procedures, please refer to the  <a href="./classes/F25-CSCI4730-6730/syllabus-f25.pdf" target="_blank" style="color: #BA0C2F; font-weight: bold;">course syllabus</a>.</p>
+                <p>For detailed information about academic honesty violations, consequences, and procedures, please refer to the  <a href="./classes/S26-CSCI4730-6730//syllabus_S26_OS.pdf" target="_blank" style="color: #BA0C2F; font-weight: bold;">course syllabus</a>.</p>
                 <p>If you have any questions or concerns regarding this policy, please contact the instructor immediately.</p>
             </div>
         </section>
 
         <!-- Footer -->
         <div class="footer">
-            <p>&copy; 2025 In Kee Kim. CSCI 4730/6730 - Operating Systems, Fall 2025.</p>
+            <p>&copy; 2026 In Kee Kim. CSCI 4730/6730 - Operating Systems, Spring 2026.</p>
         </div>
     </div>
 
